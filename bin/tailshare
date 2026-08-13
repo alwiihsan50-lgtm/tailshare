@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$DIR"
+
+export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH"
+
+if [ "$1" = "--server" ] || [ "$1" = "--headless" ] || [ -z "$DISPLAY" ]; then
+  echo "🚀 Starting TailShare Server (Headless/Daemon Mode)..."
+  exec node src/server/index.js
+else
+  echo "⚡ Starting TailShare Native Desktop App..."
+  exec npx electron src/electron/main.js
+fi

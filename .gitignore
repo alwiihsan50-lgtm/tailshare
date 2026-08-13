@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS / Editor Files
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
+
+# TailShare Local Data & Cache
+.tailshare_meta.json
+.tailshare_history.json
+dist/
+build/

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>TailShare - Tailscale Sync</title>
+  <meta name="description" content="Native Clipboard and File Sharing over Tailscale network for PC and Mobile">
+  <link rel="icon" type="image/png" href="/icons/icon.png">
+  <link rel="apple-touch-icon" href="/icons/icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dark-theme">
+  <div id="app" class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="logo-wrapper">
+          <img src="/icons/icon.png" alt="TailShare Logo" class="brand-logo">
+          <span class="status-pulse" id="netStatusPulse" title="Tailscale Connected"></span>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">TailShare</h1>
+          <span class="brand-subtitle" id="deviceIdentityBadge">PC Desktop</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Quick Tailscale IP Card -->
+        <button class="ts-ip-badge" id="btnCopyIpUrl" title="Klik untuk salin alamat Web Tailscale">
+          <svg class="icon-ts" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <circle cx="6" cy="12" r="3"/>
+            <circle cx="18" cy="12" r="3"/>
+            <circle cx="12" cy="6" r="3"/>
+            <circle cx="12" cy="18" r="3"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          <span id="headerTailscaleIp">100.110.205.27:53317</span>
+          <span class="copy-hint-pill">Salin URL</span>
+        </button>
+
+        <!-- QR Code Action Button -->
+        <button class="btn-icon" id="btnOpenQrModal" title="Tampilkan QR Code untuk HP">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="3" height="3"/>
+            <rect x="18" y="14" width="3" height="3"/>
+            <rect x="14" y="18" width="3" height="3"/>
+            <rect x="18" y="18" width="3" height="3"/>
+          </svg>
+        </button>
+
+        <!-- Connected Peer Badge -->
+        <button class="peer-count-badge" id="btnOpenDevicesTab" title="Lihat Perangkat Tailscale Terkoneksi">
+          <span class="peer-dot"></span>
+          <span id="activePeerCount">1 Perangkat</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Navigation Bar -->
+    <nav class="app-nav">
+      <button class="nav-tab active" data-tab="clipboard">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+          <path d="M9 12h6m-6 4h6"/>
+        </svg>
+        <span>Clipboard</span>
+        <span class="tab-badge" id="clipboardBadge">0</span>
+      </button>
+
+      <button class="nav-tab" data-tab="files">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="18" x2="12" y2="12"/>
+          <line x1="9" y1="15" x2="12" y2="12"/>
+          <line x1="15" y1="15" x2="12" y2="12"/>
+        </svg>
+        <span>Kirim File</span>
+        <span class="tab-badge" id="filesBadge">0</span>
+      </button>
+
+      <button class="nav-tab" data-tab="network">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+          <line x1="6" y1="6" x2="6.01" y2="6"/>
+          <line x1="6" y1="18" x2="6.01" y2="18"/>
+        </svg>
+        <span>Tailscale</span>
+      </button>
+
+      <button class="nav-tab" data-tab="settings">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+        <span>Pengaturan</span>
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+
+      <!-- ================= 1. TAB: CLIPBOARD ================= -->
+      <section class="tab-panel active" id="tab-clipboard">
+        <!-- Quick Sender Box -->
+        <div class="composer-card">
+          <div class="composer-header">
+            <span class="composer-title">Kirim Teks / Clipboard</span>
+            <div class="composer-options">
+              <label class="checkbox-container" title="Langsung tempel ke clipboard native PC">
+                <input type="checkbox" id="chkAutoCopyToPc" checked>
+                <span class="checkmark"></span>
+                <span class="label-text">Auto-Copy ke PC</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="composer-input-wrapper">
+            <textarea id="txtClipboardInput" placeholder="Ketik atau tempel teks, link URL, catatan, atau script di sini..." rows="3"></textarea>
+          </div>
+
+          <div class="composer-footer">
+            <div class="composer-meta">
+              <span id="charCounter">0 karakter</span>
+              <span class="meta-dot">•</span>
+              <span id="detectedType">Teks Biasa</span>
+            </div>
+
+            <div class="composer-buttons">
+              <button class="btn btn-secondary btn-sm" id="btnClearComposer">Bersihkan</button>
+              <button class="btn btn-primary" id="btnSendClipboard">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                <span>Kirim & Sync</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clipboard History Header & Search -->
+        <div class="section-toolbar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="searchClipboard" placeholder="Cari di riwayat clipboard...">
+          </div>
+
+          <div class="toolbar-actions">
+            <button class="btn btn-ghost btn-sm" id="btnClearHistory" title="Hapus riwayat yang tidak dipin">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+              <span>Bersihkan Riwayat</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Clipboard Items Stream -->
+        <div class="clipboard-feed" id="clipboardFeed">
+          <!-- Rendered dynamically by JS -->
+          <div class="empty-state" id="clipboardEmptyState">
+            <div class="empty-icon">📋</div>
+            <h3>Belum Ada Riwayat Clipboard</h3>
+            <p>Salin teks di PC atau ketik teks di atas untuk mulai berbagi secara instan.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2. TAB: FILES ================= -->
+      <section class="tab-panel" id="tab-files">
+        <!-- File Dropzone -->
+        <div class="dropzone-card" id="fileDropzone">
+          <input type="file" id="filePickerInput" multiple class="file-input-hidden">
+          <input type="file" id="cameraPickerInput" accept="image/*,video/*" capture="environment" class="file-input-hidden">
+          
+          <div class="dropzone-content">
+            <div class="dropzone-icon">
+              <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <h3>Tarik & Lepas File di Sini</h3>
+            <p>Mendukung foto, video 4K, dokumen, zip, dan file berukuran besar tanpa batas</p>
+            
+            <div class="dropzone-actions">
+              <button class="btn btn-primary" id="btnBrowseFiles">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>Pilih File</span>
+              </button>
+
+              <button class="btn btn-secondary mobile-only" id="btnCameraUpload">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+                <span>Kamera / Galeri HP</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Upload Progress Box -->
+          <div class="upload-progress-container hidden" id="uploadProgressBox">
+            <div class="progress-info">
+              <span class="uploading-filename" id="uploadingFileName">Mengupload file...</span>
+              <span class="uploading-percent" id="uploadingPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="uploadProgressBarFill"></div>
+            </div>
+            <div class="progress-details">
+              <span id="uploadSpeed">0 MB/s</span>
+              <span id="uploadTransferred">0 / 0 MB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Files Section Toolbar -->
+        <div class="section-toolbar">
+          <div class="toolbar-title">
+            <h3>File Tersimpan & Diterima</h3>
+            <span class="badge-count" id="filesCountBadge">0 File</span>
+          </div>
+
+          <div class="toolbar-actions">
+            <button class="btn btn-ghost btn-sm desktop-only" id="btnOpenDownloadsFolder">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Buka Folder PC</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Shared Files Grid / List -->
+        <div class="files-grid" id="filesGrid">
+          <!-- Rendered dynamically -->
+          <div class="empty-state" id="filesEmptyState">
+            <div class="empty-icon">📁</div>
+            <h3>Belum Ada File</h3>
+            <p>Tarik & lepas file atau pilih dari galeri untuk mengirim ke PC atau HP Anda.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. TAB: TAILSCALE & DEVICES ================= -->
+      <section class="tab-panel" id="tab-network">
+        <div class="network-overview-grid">
+          <!-- Node Summary Card -->
+          <div class="info-card">
+            <div class="card-header">
+              <div class="header-icon-badge">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <circle cx="6" cy="12" r="3"/>
+                  <circle cx="18" cy="12" r="3"/>
+                  <circle cx="12" cy="6" r="3"/>
+                  <circle cx="12" cy="18" r="3"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Status Tailscale Host</h4>
+                <p class="text-muted">Node PC saat ini</p>
+              </div>
+            </div>
+
+            <div class="kv-list">
+              <div class="kv-item">
+                <span class="kv-label">Tailscale IPv4</span>
+                <span class="kv-value code-value" id="tsNodeIp">100.110.205.27</span>
+              </div>
+              <div class="kv-item">
+                <span class="kv-label">Hostname</span>
+                <span class="kv-value" id="tsHostname">cuker-PC</span>
+              </div>
+              <div class="kv-item">
+                <span class="kv-label">MagicDNS</span>
+                <span class="kv-value text-truncate" id="tsDnsName">cuker.tail.ts.net</span>
+              </div>
+              <div class="kv-item">
+                <span class="kv-label">Akun Tailnet</span>
+                <span class="kv-value" id="tsAccount">alwiihsan50@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Pairing QR Card -->
+          <div class="info-card qr-card">
+            <div class="card-header">
+              <div class="header-icon-badge">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/>
+                  <rect x="14" y="3" width="7" height="7" rx="1"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Scan QR untuk Membuka di HP</h4>
+                <p class="text-muted">Buka kamera iPhone / Android Anda</p>
+              </div>
+            </div>
+
+            <div class="qr-container">
+              <img id="qrCodeImg" src="" alt="TailShare Pairing QR Code" class="qr-image">
+              <p class="qr-url" id="qrTargetUrlText">http://100.110.205.27:53317</p>
+              <button class="btn btn-secondary btn-sm" id="btnCopyPairingUrl">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span>Salin URL Tailscale</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Discovered Tailscale Peers -->
+        <div class="peers-section">
+          <div class="section-toolbar">
+            <div class="toolbar-title">
+              <h3>Perangkat Terdaftar di Tailnet Anda</h3>
+              <span class="badge-count" id="discoveredPeersCount">0 Terdeteksi</span>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="btnRefreshPeers">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"/>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+              </svg>
+              <span>Segarkan</span>
+            </button>
+          </div>
+
+          <div class="peers-grid" id="peersGrid">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 4. TAB: SETTINGS ================= -->
+      <section class="tab-panel" id="tab-settings">
+        <div class="settings-container">
+          <div class="settings-group">
+            <h3>Sinkronisasi & Notifikasi</h3>
+
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">Auto-Sync Clipboard PC</span>
+                <span class="setting-desc">Secara otomatis membaca teks yang Anda salin (Ctrl+C) di PC dan menyinkronkannya ke HP.</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="settingAutoSync" checked>
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">Notifikasi Desktop Linux (notify-send)</span>
+                <span class="setting-desc">Tampilkan pop-up notifikasi sistem saat menerima teks atau file dari HP.</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="settingDesktopNotify" checked>
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">Efek Suara (Audio Chime)</span>
+                <span class="setting-desc">Mainkan nada lembut saat item baru diterima.</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="settingSound" checked>
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3>Penyimpanan File</h3>
+
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">Lokasi Folder Download</span>
+                <span class="setting-desc" id="settingDownloadPathText">/home/cuker/Downloads/TailShare</span>
+              </div>
+              <button class="btn btn-secondary btn-sm desktop-only" id="btnOpenFolderSettings">
+                Buka Folder
+              </button>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3>Tentang Aplikasi</h3>
+            <div class="setting-row">
+              <div class="setting-meta">
+                <span class="setting-title">TailShare Native Suite</span>
+                <span class="setting-desc">Versi 1.0.0 • Dibuat khusus untuk ekosistem Tailscale</span>
+              </div>
+              <span class="badge-clean">v1.0.0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Global Fullscreen Drop Overlay -->
+    <div class="drag-drop-overlay hidden" id="globalDropOverlay">
+      <div class="overlay-modal">
+        <svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="17 8 12 3 7 8"/>
+          <line x1="12" y1="3" x2="12" y2="15"/>
+        </svg>
+        <h2>Lepaskan File untuk Mulai Berbagi</h2>
+        <p>File akan otomatis dikirim dan disimpan ke direktori TailShare PC</p>
+      </div>
+    </div>
+
+    <!-- QR Code Modal (Header Quick View) -->
+    <div class="modal-backdrop hidden" id="qrModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Koneksikan HP / Perangkat Lain</h3>
+          <button class="modal-close" id="btnCloseQrModal">&times;</button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="text-muted">Arahkan kamera HP Anda ke QR code ini untuk langsung membuka TailShare di browser HP.</p>
+          <div class="qr-modal-image-wrapper">
+            <img id="qrModalImg" src="" alt="QR Code" class="qr-image-large">
+          </div>
+          <div class="qr-modal-link-box">
+            <span id="qrModalUrlText">http://100.110.205.27:53317</span>
+            <button class="btn btn-primary btn-sm" id="btnCopyModalUrl">Salin</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Media / File Preview Modal -->
+    <div class="modal-backdrop hidden" id="previewModal">
+      <div class="modal-card modal-large">
+        <div class="modal-header">
+          <h3 id="previewTitle" class="text-truncate">Preview File</h3>
+          <div class="modal-header-actions">
+            <a href="#" id="previewDownloadBtn" class="btn btn-secondary btn-sm" download>Unduh</a>
+            <button class="modal-close" id="btnClosePreviewModal">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body preview-body" id="previewContent">
+          <!-- Dynamic Media Preview -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
