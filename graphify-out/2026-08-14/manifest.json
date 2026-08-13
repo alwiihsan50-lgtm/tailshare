@@ -1,0 +1,68 @@
+{
+  "bin/tailshare": {
+    "mtime": 1786649935.7288475,
+    "seen": 1786660368.796506,
+    "ast_hash": "ae49ecb1c39984c6e7d75b8bef5b5c5b",
+    "semantic_hash": "ae49ecb1c39984c6e7d75b8bef5b5c5b"
+  },
+  "package.json": {
+    "mtime": 1786647289.94997,
+    "seen": 1786660368.7965078,
+    "ast_hash": "5b5ca814701f5bab66782b02d0cc880a",
+    "semantic_hash": "5b5ca814701f5bab66782b02d0cc880a"
+  },
+  "src/electron/main.js": {
+    "mtime": 1786650097.4465811,
+    "seen": 1786660368.796509,
+    "ast_hash": "8e016be2ffe964abefc324522b0c5e9c",
+    "semantic_hash": "8e016be2ffe964abefc324522b0c5e9c"
+  },
+  "src/electron/preload.cjs": {
+    "mtime": 1786649978.8091192,
+    "seen": 1786660368.7965095,
+    "ast_hash": "b7e2b1b48eaf3448753643543348c0f6",
+    "semantic_hash": "b7e2b1b48eaf3448753643543348c0f6"
+  },
+  "src/electron/preload.js": {
+    "mtime": 1786647303.7892828,
+    "seen": 1786660368.79651,
+    "ast_hash": "ba90bb4c25932602e239c86af44d4a4a",
+    "semantic_hash": "ba90bb4c25932602e239c86af44d4a4a"
+  },
+  "src/public/js/app.js": {
+    "mtime": 1786649466.695234,
+    "seen": 1786660368.7965102,
+    "ast_hash": "39c153ec10d1d8de0b57b8674667a052",
+    "semantic_hash": "39c153ec10d1d8de0b57b8674667a052"
+  },
+  "src/public/manifest.json": {
+    "mtime": 1786647313.4915028,
+    "seen": 1786660368.796511,
+    "ast_hash": "6343b398c310137ccce6a827016f6847",
+    "semantic_hash": "6343b398c310137ccce6a827016f6847"
+  },
+  "src/server/clipboard.js": {
+    "mtime": 1786648689.9516375,
+    "seen": 1786660368.7965114,
+    "ast_hash": "6848c3b5e7b2639fabb42ca3eb10d87f",
+    "semantic_hash": "6848c3b5e7b2639fabb42ca3eb10d87f"
+  },
+  "src/server/index.js": {
+    "mtime": 1786650087.773301,
+    "seen": 1786660368.796512,
+    "ast_hash": "858b817dc193eb6d60ae2b2200812c97",
+    "semantic_hash": "858b817dc193eb6d60ae2b2200812c97"
+  },
+  "src/server/storage.js": {
+    "mtime": 1786649410.576349,
+    "seen": 1786660368.7965124,
+    "ast_hash": "bcbf5407fa5d33ee866513b0dd71930e",
+    "semantic_hash": "bcbf5407fa5d33ee866513b0dd71930e"
+  },
+  "src/server/tailscale.js": {
+    "mtime": 1786647274.2236161,
+    "seen": 1786660368.7965128,
+    "ast_hash": "3947183479268d489879ce19b97b6973",
+    "semantic_hash": "3947183479268d489879ce19b97b6973"
+  }
+}

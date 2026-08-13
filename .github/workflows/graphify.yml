@@ -1,0 +1,53 @@
+name: Graphify Knowledge Graph
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - "graphify-out/**"
+      - ".github/workflows/graphify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  graphify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install Graphify
+        run: |
+          uv tool install graphifyy
+
+      - name: Generate Knowledge Graph
+        run: |
+          graphify extract . --code-only || true
+          if [ -f "graphify-out/graph.json" ]; then
+            graphify cluster-only . || true
+            graphify export html || true
+          fi
+
+      - name: Commit and Push Graph Updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add graphify-out/ .github/workflows/graphify.yml
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "docs: auto-update graphify knowledge graph [skip ci]"
+            git push
+          fi
+

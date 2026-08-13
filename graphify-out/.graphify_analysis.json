@@ -1,0 +1,252 @@
+{
+  "communities": {
+    "0": [
+      "src_server_clipboard",
+      "src_server_clipboard_clipboardmanager",
+      "src_server_clipboard_clipboardmanager_constructor",
+      "src_server_clipboard_clipboardmanager_getnativeclipboard",
+      "src_server_clipboard_clipboardmanager_hash",
+      "src_server_clipboard_clipboardmanager_senddesktopnotification",
+      "src_server_clipboard_clipboardmanager_setautosync",
+      "src_server_clipboard_clipboardmanager_setnativeclipboard",
+      "src_server_clipboard_clipboardmanager_startmonitoring",
+      "src_server_clipboard_clipboardmanager_stopmonitoring",
+      "src_server_index",
+      "src_server_index_config_dir",
+      "src_server_index_createtailshareserver",
+      "src_server_index_dirname",
+      "src_server_index_filename",
+      "src_server_index_getdefaultstoragepath",
+      "src_server_index_history_file",
+      "src_server_index_loadclipboardhistory",
+      "src_server_index_loadsettings",
+      "src_server_index_public_dir",
+      "src_server_index_saveclipboardhistory",
+      "src_server_index_savesettings",
+      "src_server_index_settings_file",
+      "src_server_tailscale",
+      "src_server_tailscale_execasync",
+      "src_server_tailscale_gettailscaleinfo"
+    ],
+    "1": [
+      "src_public_js_app",
+      "src_public_js_app_applysettingstoui",
+      "src_public_js_app_copytexttoclipboard",
+      "src_public_js_app_detectdevicename",
+      "src_public_js_app_escapehtml",
+      "src_public_js_app_fetchqrcode",
+      "src_public_js_app_fetchstatus",
+      "src_public_js_app_formatbytes",
+      "src_public_js_app_formattimeago",
+      "src_public_js_app_getfiletypeinfo",
+      "src_public_js_app_handleservermessage",
+      "src_public_js_app_init",
+      "src_public_js_app_initeventlisteners",
+      "src_public_js_app_initwebsocket",
+      "src_public_js_app_isurl",
+      "src_public_js_app_openpreviewmodal",
+      "src_public_js_app_playaudiochime",
+      "src_public_js_app_renderclipboard",
+      "src_public_js_app_renderfiles",
+      "src_public_js_app_renderpeers",
+      "src_public_js_app_showtoast",
+      "src_public_js_app_updatedevicescount",
+      "src_public_js_app_uploadfiles"
+    ],
+    "2": [
+      "electron",
+      "package_dependencies_electron",
+      "package_keywords",
+      "ref_clipboard",
+      "ref_file_sharing",
+      "ref_pwa",
+      "ref_tailscale",
+      "src_electron_main",
+      "src_electron_main_appiconpath",
+      "src_electron_main_createtray",
+      "src_electron_main_createwindow",
+      "src_electron_main_dirname",
+      "src_electron_main_filename",
+      "src_electron_main_gotthelock",
+      "src_electron_main_trayiconpath",
+      "src_electron_preload_cjs_src_electron_preload",
+      "src_electron_preload_contextbridge_ipcrenderer",
+      "src_electron_preload_js_src_electron_preload"
+    ],
+    "3": [
+      "package",
+      "package_author",
+      "package_bin",
+      "package_bin_tailshare",
+      "package_description",
+      "package_license",
+      "package_main",
+      "package_name",
+      "package_scripts",
+      "package_scripts_desktop",
+      "package_scripts_dev",
+      "package_scripts_start",
+      "package_type",
+      "package_version"
+    ],
+    "4": [
+      "src_server_storage",
+      "src_server_storage_storagemanager",
+      "src_server_storage_storagemanager_constructor",
+      "src_server_storage_storagemanager_deletefile",
+      "src_server_storage_storagemanager_getfile",
+      "src_server_storage_storagemanager_getfiles",
+      "src_server_storage_storagemanager_init",
+      "src_server_storage_storagemanager_loadmeta",
+      "src_server_storage_storagemanager_opendownloadfolder",
+      "src_server_storage_storagemanager_openspecificfile",
+      "src_server_storage_storagemanager_registeruploadedfile",
+      "src_server_storage_storagemanager_savemeta",
+      "src_server_storage_storagemanager_scanfolder",
+      "src_server_storage_storagemanager_startwatcher"
+    ],
+    "5": [
+      "cors",
+      "express",
+      "mime_types",
+      "multer",
+      "package_dependencies",
+      "package_dependencies_cors",
+      "package_dependencies_express",
+      "package_dependencies_mime_types",
+      "package_dependencies_multer",
+      "package_dependencies_qrcode",
+      "package_dependencies_ws",
+      "qrcode",
+      "ws"
+    ],
+    "6": [
+      "src_public_manifest",
+      "src_public_manifest_background_color",
+      "src_public_manifest_description",
+      "src_public_manifest_display",
+      "src_public_manifest_icons",
+      "src_public_manifest_name",
+      "src_public_manifest_short_name",
+      "src_public_manifest_start_url",
+      "src_public_manifest_theme_color"
+    ],
+    "7": [
+      "bin_tailshare",
+      "bin_tailshare__entry",
+      "bin_tailshare_path"
+    ]
+  },
+  "cohesion": {
+    "0": 0.12307692307692308,
+    "1": 0.22529644268774704,
+    "2": 0.1111111111111111,
+    "3": 0.14285714285714285,
+    "4": 0.27472527472527475,
+    "5": 0.15384615384615385,
+    "6": 0.2222222222222222,
+    "7": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "src_server_index_createtailshareserver",
+      "label": "createTailShareServer()",
+      "degree": 19
+    },
+    {
+      "id": "src_server_storage_storagemanager",
+      "label": "StorageManager",
+      "degree": 14
+    },
+    {
+      "id": "src_server_clipboard_clipboardmanager",
+      "label": "ClipboardManager",
+      "degree": 10
+    },
+    {
+      "id": "src_public_js_app_initeventlisteners",
+      "label": "initEventListeners()",
+      "degree": 9
+    },
+    {
+      "id": "src_public_js_app_handleservermessage",
+      "label": "handleServerMessage()",
+      "degree": 8
+    },
+    {
+      "id": "src_public_js_app_renderclipboard",
+      "label": "renderClipboard()",
+      "degree": 8
+    },
+    {
+      "id": "src_public_js_app_renderfiles",
+      "label": "renderFiles()",
+      "degree": 8
+    },
+    {
+      "id": "src_public_js_app_showtoast",
+      "label": "showToast()",
+      "degree": 7
+    },
+    {
+      "id": "package_keywords",
+      "label": "keywords",
+      "degree": 6
+    },
+    {
+      "id": "src_public_js_app_escapehtml",
+      "label": "escapeHtml()",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "createTailShareServer()",
+      "target": "getTailscaleInfo()",
+      "source_files": [
+        "src/server/index.js",
+        "src/server/tailscale.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `keywords` connect `main.js` to `package.json`?",
+      "why": "High betweenness centrality (0.150) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `createTailShareServer()` connect `index.js` to `main.js`, `StorageManager`?",
+      "why": "High betweenness centrality (0.144) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 12 inferred relationships involving `createTailShareServer()` (e.g. with `.sendDesktopNotification()` and `.setAutoSync()`) actually correct?",
+      "why": "`createTailShareServer()` has 12 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `CONFIG_DIR`, `__dirname`, `__filename` to the rest of the system?",
+      "why": "41 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `index.js` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.12307692307692308 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `main.js` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
