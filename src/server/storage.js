@@ -6,7 +6,21 @@ import crypto from 'crypto';
 
 export class StorageManager {
   constructor(customDir = null) {
-    this.downloadDir = customDir || path.join(os.homedir(), 'Downloads', 'TailShare');
+    if (customDir) {
+      this.downloadDir = customDir;
+    } else if (os.platform() === 'win32') {
+      // Check if D:\tailscale or D:\ exists on Windows
+      if (fs.existsSync('D:\\tailscale')) {
+        this.downloadDir = 'D:\\tailscale';
+      } else if (fs.existsSync('D:\\')) {
+        this.downloadDir = 'D:\\Downloads\\TailShare';
+      } else {
+        this.downloadDir = path.join(os.homedir(), 'Downloads', 'TailShare');
+      }
+    } else {
+      this.downloadDir = path.join(os.homedir(), 'Downloads', 'TailShare');
+    }
+
     this.metaFile = path.join(this.downloadDir, '.tailshare_meta.json');
     this.files = [];
     this.init();
@@ -14,7 +28,11 @@ export class StorageManager {
 
   init() {
     if (!fs.existsSync(this.downloadDir)) {
-      fs.mkdirSync(this.downloadDir, { recursive: true });
+      try {
+        fs.mkdirSync(this.downloadDir, { recursive: true });
+      } catch (e) {
+        console.error('Failed to create storage dir:', e);
+      }
     }
     this.loadMeta();
   }
@@ -92,7 +110,15 @@ export class StorageManager {
 
   openDownloadFolder() {
     return new Promise((resolve) => {
-      exec(`xdg-open "${this.downloadDir}" 2>/dev/null || true`, (err) => {
+      const platform = os.platform();
+      let cmd = `xdg-open "${this.downloadDir}" 2>/dev/null || true`;
+      if (platform === 'win32') {
+        cmd = `explorer.exe "${this.downloadDir}"`;
+      } else if (platform === 'darwin') {
+        cmd = `open "${this.downloadDir}"`;
+      }
+
+      exec(cmd, (err) => {
         resolve(!err);
       });
     });
@@ -103,7 +129,15 @@ export class StorageManager {
     if (!file || !fs.existsSync(file.filePath)) return Promise.resolve(false);
 
     return new Promise((resolve) => {
-      exec(`xdg-open "${file.filePath}" 2>/dev/null || true`, (err) => {
+      const platform = os.platform();
+      let cmd = `xdg-open "${file.filePath}" 2>/dev/null || true`;
+      if (platform === 'win32') {
+        cmd = `start "" "${file.filePath}"`;
+      } else if (platform === 'darwin') {
+        cmd = `open "${file.filePath}"`;
+      }
+
+      exec(cmd, (err) => {
         resolve(!err);
       });
     });

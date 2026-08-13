@@ -111,7 +111,7 @@
     const ua = navigator.userAgent || '';
     let name = 'Web Browser';
     if (window.tailshareNative && window.tailshareNative.isElectron) {
-      name = 'PC Native (Linux)';
+      name = /Windows|Win32|Win64/i.test(ua) ? 'PC Native (Windows)' : 'PC Native (Linux)';
     } else if (/iPhone/i.test(ua)) {
       name = 'iPhone';
     } else if (/iPad/i.test(ua)) {
