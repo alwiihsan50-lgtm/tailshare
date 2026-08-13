@@ -95,6 +95,7 @@ export async function createTailShareServer(portOverride = null) {
   const app = express();
   const server = http.createServer(app);
   const wss = new WebSocketServer({ server });
+  wss.on('error', () => {});
 
   const storageManager = new StorageManager(settings.downloadPath);
   let clipboardHistory = loadClipboardHistory();
@@ -499,6 +500,11 @@ export async function createTailShareServer(portOverride = null) {
   });
 
   return new Promise((resolve, reject) => {
+    server.once('error', (err) => {
+      clipboardManager.stopMonitoring();
+      reject(err);
+    });
+
     server.listen(PORT, '0.0.0.0', async () => {
       const tailscale = await getTailscaleInfo();
       console.log(`\n⚡ TailShare Server running on port ${PORT}`);
@@ -522,7 +528,7 @@ export async function createTailShareServer(portOverride = null) {
           server.close();
         }
       });
-    }).on('error', reject);
+    });
   });
 }
 

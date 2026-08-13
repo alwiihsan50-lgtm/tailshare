@@ -6,10 +6,17 @@ cd "$DIR"
 
 export PATH="$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH"
 
+if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
+  # If no GUI display, fallback to DISPLAY :0 if available, else headless
+  if [ -e "/tmp/.X11-unix/X0" ]; then
+    export DISPLAY=:0
+  fi
+fi
+
 if [ "$1" = "--server" ] || [ "$1" = "--headless" ] || [ -z "$DISPLAY" ]; then
   echo "🚀 Starting TailShare Server (Headless/Daemon Mode)..."
-  exec node src/server/index.js
+  exec /home/cuker/.local/bin/node src/server/index.js
 else
   echo "⚡ Starting TailShare Native Desktop App..."
-  exec npx electron src/electron/main.js
+  exec "$DIR/node_modules/.bin/electron" --no-sandbox src/electron/main.js "$@"
 fi

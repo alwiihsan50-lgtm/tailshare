@@ -2,8 +2,9 @@
 Name=TailShare
 GenericName=Tailscale Clipboard & File Sharing
 Comment=Seamless clipboard sync and fast file sharing over Tailscale network
-Exec=/home/cuker/.local/bin/tailshare
-Icon=/home/cuker/tailshare/src/public/icons/icon.png
+Exec=/home/cuker/tailshare/bin/tailshare
+Path=/home/cuker/tailshare
+Icon=/home/cuker/tailshare/src/public/icons/app-icon.png
 Terminal=false
 Type=Application
 Categories=Network;Utility;FileTransfer;

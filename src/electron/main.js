@@ -3,6 +3,22 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createTailShareServer } from '../server/index.js';
 
+import fs from 'fs';
+
+process.on('uncaughtException', (err) => {
+  console.error('UNCAUGHT EXCEPTION in Electron Main:', err);
+  try {
+    fs.writeFileSync('/tmp/electron_crash.txt', (err && err.stack) ? err.stack : String(err));
+  } catch {}
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('UNHANDLED REJECTION in Electron Main:', reason);
+  try {
+    fs.writeFileSync('/tmp/electron_rejection.txt', String(reason));
+  } catch {}
+});
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -11,51 +27,60 @@ let tray = null;
 let serverInstance = null;
 let isQuitting = false;
 
-const iconPath = path.join(__dirname, '..', 'public', 'icons', 'icon.png');
+const trayIconPath = path.join(__dirname, '..', 'public', 'icons', 'tray.png');
+const appIconPath = path.join(__dirname, '..', 'public', 'icons', 'app-icon.png');
 
-// Linux display compatibility
-app.commandLine.appendSwitch('enable-features', 'UseOzonePlatform');
-app.commandLine.appendSwitch('ozone-platform-hint', 'auto');
+// Linux display & sandbox compatibility
+if (process.platform === 'linux') {
+  app.commandLine.appendSwitch('no-sandbox');
+  app.commandLine.appendSwitch('disable-setuid-sandbox');
+  app.commandLine.appendSwitch('disable-dev-shm-usage');
+  app.commandLine.appendSwitch('disable-gpu-sandbox');
+}
 
-async function createWindow(serverPort, tailscaleInfo) {
-  mainWindow = new BrowserWindow({
-    width: 1100,
-    height: 750,
-    minWidth: 800,
-    minHeight: 600,
-    title: 'TailShare - Native Sync',
-    icon: iconPath,
-    backgroundColor: '#090d16',
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: false,
-      contextIsolation: true
-    }
-  });
-
-  mainWindow.setMenuBarVisibility(false);
-
-  const localUrl = `http://127.0.0.1:${serverPort}`;
-  await mainWindow.loadURL(localUrl);
-
-  mainWindow.on('close', (event) => {
-    if (!isQuitting) {
-      event.preventDefault();
-      mainWindow.hide();
-      if (Notification.isSupported()) {
-        new Notification({
-          title: 'TailShare Running in Background',
-          body: 'TailShare is still active in your system tray to sync clipboard & files.'
-        }).show();
+function createWindow(serverPort, tailscaleInfo) {
+  try {
+    mainWindow = new BrowserWindow({
+      width: 1100,
+      height: 750,
+      minWidth: 800,
+      minHeight: 600,
+      title: 'TailShare - Native Sync',
+      icon: appIconPath,
+      backgroundColor: '#090d16',
+      autoHideMenuBar: true,
+      show: true,
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.cjs'),
+        nodeIntegration: false,
+        contextIsolation: true,
+        sandbox: false
       }
-    }
-    return false;
-  });
+    });
+
+    const localUrl = `http://127.0.0.1:${serverPort}`;
+    mainWindow.loadURL(localUrl).catch((err) => {
+      console.error('Failed to load URL:', err);
+    });
+
+    mainWindow.on('close', (event) => {
+      if (!isQuitting) {
+        event.preventDefault();
+        mainWindow.hide();
+      }
+      return false;
+    });
+
+    mainWindow.show();
+    mainWindow.focus();
+  } catch (err) {
+    console.error('Error creating window:', err);
+  }
 }
 
 function createTray(serverPort, tailscaleInfo) {
   try {
-    tray = new Tray(iconPath);
+    tray = new Tray(trayIconPath);
     const webUrl = `http://${tailscaleInfo.ip || '127.0.0.1'}:${serverPort}`;
 
     const contextMenu = Menu.buildFromTemplate([
@@ -84,6 +109,8 @@ function createTray(serverPort, tailscaleInfo) {
         click: () => {
           if (serverInstance && serverInstance.storageManager) {
             serverInstance.storageManager.openDownloadFolder();
+          } else {
+            shell.openPath(path.join(process.env.HOME, 'Downloads', 'TailShare'));
           }
         }
       },
@@ -91,12 +118,6 @@ function createTray(serverPort, tailscaleInfo) {
         label: 'Copy Web Link',
         click: () => {
           clipboard.writeText(webUrl);
-          if (Notification.isSupported()) {
-            new Notification({
-              title: 'TailShare URL Copied',
-              body: webUrl
-            }).show();
-          }
         }
       },
       { type: 'separator' },
@@ -109,7 +130,7 @@ function createTray(serverPort, tailscaleInfo) {
       }
     ]);
 
-    tray.setToolTip('TailShare - Tailscale Clipboard & File Sharing');
+    tray.setToolTip('TailShare - Tailscale Sync');
     tray.setContextMenu(contextMenu);
 
     tray.on('click', () => {
@@ -123,13 +144,14 @@ function createTray(serverPort, tailscaleInfo) {
       }
     });
   } catch (err) {
-    console.error('Tray creation error:', err);
+    console.log('Note: System tray not supported or failed to initialize:', err.message);
   }
 }
 
 // Single instance lock
 const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
+  // If another instance is running, signal it and exit cleanly
   app.quit();
 } else {
   app.on('second-instance', () => {
@@ -144,29 +166,31 @@ if (!gotTheLock) {
     let serverPort = 53317;
     let tailscaleInfo = { ip: '127.0.0.1', hostname: 'PC', peers: [] };
 
+    // Check if background server is already running
+    let isAlreadyRunning = false;
     try {
-      serverInstance = await createTailShareServer(serverPort);
-      serverPort = serverInstance.port;
-      tailscaleInfo = serverInstance.tailscale;
-    } catch (err) {
-      if (err.code === 'EADDRINUSE') {
-        console.log('⚡ TailShare server is already running in background. Connecting to existing instance...');
-        try {
-          const res = await fetch(`http://127.0.0.1:${serverPort}/api/status`);
-          const data = await res.json();
-          if (data.success && data.tailscale) {
-            tailscaleInfo = data.tailscale;
-          }
-        } catch (e) {
-          console.error('Failed to query existing instance:', e);
-        }
-      } else {
-        console.error('Failed to start TailShare Desktop:', err);
+      const res = await fetch(`http://127.0.0.1:${serverPort}/api/status`, {
+        signal: AbortSignal.timeout(800)
+      });
+      const data = await res.json();
+      if (data.success && data.tailscale) {
+        tailscaleInfo = data.tailscale;
+        isAlreadyRunning = true;
+      }
+    } catch {}
+
+    if (!isAlreadyRunning) {
+      try {
+        serverInstance = await createTailShareServer(serverPort);
+        serverPort = serverInstance.port;
+        tailscaleInfo = serverInstance.tailscale;
+      } catch (err) {
+        console.error('Failed to start server instance:', err);
       }
     }
 
+    createWindow(serverPort, tailscaleInfo);
     createTray(serverPort, tailscaleInfo);
-    await createWindow(serverPort, tailscaleInfo);
 
     // IPC Handlers
     ipcMain.handle('get-server-info', () => ({
