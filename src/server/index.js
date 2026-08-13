@@ -24,6 +24,25 @@ if (!fs.existsSync(CONFIG_DIR)) {
   fs.mkdirSync(CONFIG_DIR, { recursive: true });
 }
 
+const LOG_FILE = path.join(CONFIG_DIR, 'server.log');
+function logServer(msg) {
+  try {
+    fs.appendFileSync(LOG_FILE, `[${new Date().toISOString()}] ${msg}\n`);
+  } catch {}
+}
+
+process.on('uncaughtException', (err) => {
+  logServer(`FATAL Uncaught Exception: ${err?.stack || err}`);
+});
+
+process.on('unhandledRejection', (reason) => {
+  logServer(`FATAL Unhandled Rejection: ${reason?.stack || reason}`);
+});
+
+process.on('exit', (code) => {
+  logServer(`Process exit with code: ${code}`);
+});
+
 // Config file
 const SETTINGS_FILE = path.join(CONFIG_DIR, 'settings.json');
 const HISTORY_FILE = path.join(CONFIG_DIR, 'clipboard_history.json');
@@ -533,7 +552,11 @@ export async function createTailShareServer(portOverride = null) {
 }
 
 // Auto start if executed directly
-const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+const isDirectRun = process.argv[1] && (
+  fileURLToPath(import.meta.url).toLowerCase() === path.resolve(process.argv[1]).toLowerCase() ||
+  path.basename(process.argv[1]) === 'index.js' ||
+  path.basename(process.argv[1]) === 'server.js'
+);
 if (isDirectRun) {
   createTailShareServer().catch((err) => {
     console.error('Failed to start TailShare server:', err);
