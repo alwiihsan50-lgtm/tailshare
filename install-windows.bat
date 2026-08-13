@@ -56,7 +56,10 @@ echo.
 :: 4. Create auto-start scripts in Windows Startup Folder
 echo [4/5] Mengaktifkan Auto-Start saat Windows Dinyalakan...
 set "STARTUP_FOLDER=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
-copy /y "%~dp0launch-silent.vbs" "%STARTUP_FOLDER%\TailShare-AutoStart.vbs" >nul
+(
+echo Set WshShell = CreateObject("WScript.Shell"^)
+echo WshShell.Run "cmd /c """"%~dp0start-windows.bat""""", 0, False
+) > "%STARTUP_FOLDER%\TailShare-AutoStart.vbs"
 echo    [OK] Auto-Start berhasil dipasang di folder Startup Windows!
 echo.
 
