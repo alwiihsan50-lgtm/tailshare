@@ -156,6 +156,9 @@ export class StorageManager {
           }
         }, 250);
       });
+      this.watcher.on('error', (err) => {
+        console.error('Folder watcher error:', err);
+      });
     } catch (err) {
       console.error('Failed to start folder watcher:', err);
     }
