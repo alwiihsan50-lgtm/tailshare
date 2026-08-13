@@ -253,6 +253,23 @@ export async function createTailShareServer(portOverride = null) {
     });
   });
 
+  // Direct Raw text for iOS Shortcuts & Automation
+  app.get('/api/clipboard/raw', (req, res) => {
+    const latest = clipboardHistory[0]?.text || '';
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.send(latest);
+  });
+
+  // Latest clipboard item JSON
+  app.get('/api/clipboard/latest', (req, res) => {
+    const latest = clipboardHistory[0] || null;
+    res.json({
+      success: true,
+      text: latest?.text || '',
+      item: latest
+    });
+  });
+
   app.post('/api/clipboard', async (req, res) => {
     try {
       const { text, sourceDevice, copyToPc } = req.body;

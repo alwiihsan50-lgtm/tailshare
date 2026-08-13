@@ -1,4 +1,3 @@
 Set WshShell = CreateObject("WScript.Shell")
-Set FSO = CreateObject("Scripting.FileSystemObject")
-scriptDir = FSO.GetParentFolderName(WScript.ScriptFullName)
-WshShell.Run "cmd /c """ & scriptDir & "\start-windows.bat""", 0, False
+WshShell.CurrentDirectory = "C:\Users\alwii\Desktop\tailshare"
+WshShell.Run "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File ""C:\Users\alwii\Desktop\tailshare\start-tailshare.ps1""", 0, False
