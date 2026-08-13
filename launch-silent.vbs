@@ -1,2 +1,5 @@
 Set WshShell = CreateObject("WScript.Shell")
-WshShell.Run "cmd /c """ & CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName) & "\start-windows.bat""", 0, False
+Set FSO = CreateObject("Scripting.FileSystemObject")
+scriptDir = FSO.GetParentFolderName(WScript.ScriptFullName)
+WshShell.CurrentDirectory = scriptDir
+WshShell.Run "cmd.exe /c """ & scriptDir & "\start-windows.bat""", 0, False
