@@ -22,25 +22,35 @@ export class ClipboardManager {
 
   async getNativeClipboard() {
     return new Promise((resolve) => {
-      if (this.platform === 'win32') {
-        exec('powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Get-Clipboard"', { timeout: 1500, maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
-          if (err || !stdout) resolve('');
-          else resolve(stdout.replace(/\r\n/g, '\n').replace(/\r$/, ''));
-        });
-      } else if (this.platform === 'darwin') {
-        exec('pbpaste', { timeout: 1500, maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
-          resolve(err ? '' : stdout || '');
-        });
-      } else {
-        // Linux (Wayland or X11)
-        const isWayland = Boolean(process.env.WAYLAND_DISPLAY);
-        const cmd = isWayland
-          ? 'wl-paste --no-newline 2>/dev/null || xclip -selection clipboard -o 2>/dev/null'
-          : 'xclip -selection clipboard -o 2>/dev/null || xsel --clipboard --output 2>/dev/null';
+      try {
+        if (this.platform === 'win32') {
+          const cp = spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', 'Get-Clipboard'], {
+            stdio: ['ignore', 'pipe', 'ignore'],
+            windowsHide: true
+          });
+          let data = '';
+          cp.stdout.on('data', chunk => { data += chunk; });
+          cp.on('close', () => {
+            resolve(data ? data.replace(/\r\n/g, '\n').replace(/\r$/, '') : '');
+          });
+          cp.on('error', () => resolve(''));
+        } else if (this.platform === 'darwin') {
+          exec('pbpaste', { timeout: 1500, maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
+            resolve(err ? '' : stdout || '');
+          });
+        } else {
+          // Linux (Wayland or X11)
+          const isWayland = Boolean(process.env.WAYLAND_DISPLAY);
+          const cmd = isWayland
+            ? 'wl-paste --no-newline 2>/dev/null || xclip -selection clipboard -o 2>/dev/null'
+            : 'xclip -selection clipboard -o 2>/dev/null || xsel --clipboard --output 2>/dev/null';
 
-        exec(cmd, { timeout: 1500, maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
-          resolve(err ? '' : stdout || '');
-        });
+          exec(cmd, { timeout: 1500, maxBuffer: 10 * 1024 * 1024 }, (err, stdout) => {
+            resolve(err ? '' : stdout || '');
+          });
+        }
+      } catch {
+        resolve('');
       }
     });
   }
@@ -57,11 +67,11 @@ export class ClipboardManager {
         if (this.platform === 'win32') {
           const cp = spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', '$input | Set-Clipboard'], {
             stdio: ['pipe', 'ignore', 'ignore'],
-            detached: true
+            windowsHide: true
           });
+          cp.on('error', () => resolve(false));
           cp.stdin.write(text);
           cp.stdin.end();
-          cp.unref();
           resolve(true);
         } else if (this.platform === 'darwin') {
           const cp = spawn('pbcopy', [], {
@@ -127,7 +137,10 @@ export class ClipboardManager {
           $notification = [Windows.UI.Notifications.ToastNotification]::new($template)
           $notifier.Show($notification)
         `.replace(/\n/g, ' ');
-        exec(`powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "${psCommand}" 2>nul || true`);
+        spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', psCommand], {
+          stdio: 'ignore',
+          windowsHide: true
+        });
       } else if (this.platform === 'darwin') {
         exec(`osascript -e 'display notification "${sanitizedMsg}" with title "${sanitizedTitle}"' 2>/dev/null || true`);
       } else {
