@@ -28,18 +28,36 @@ if (!fs.existsSync(CONFIG_DIR)) {
 const SETTINGS_FILE = path.join(CONFIG_DIR, 'settings.json');
 const HISTORY_FILE = path.join(CONFIG_DIR, 'clipboard_history.json');
 
+function getDefaultStoragePath() {
+  if (os.platform() === 'win32') {
+    if (fs.existsSync('D:\\tailshare') || fs.existsSync('D:\\')) {
+      return 'D:\\tailshare';
+    }
+  } else {
+    if (fs.existsSync('/media/cuker/Data/tailshare') || fs.existsSync('/media/cuker/Data')) {
+      return '/media/cuker/Data/tailshare';
+    }
+  }
+  return path.join(os.homedir(), 'Downloads', 'TailShare');
+}
+
 function loadSettings() {
   const defaults = {
     port: 53317,
     autoSyncClipboard: true,
     soundNotifications: true,
     desktopNotifications: true,
-    downloadPath: path.join(os.homedir(), 'Downloads', 'TailShare')
+    downloadPath: getDefaultStoragePath()
   };
   try {
     if (fs.existsSync(SETTINGS_FILE)) {
       const data = JSON.parse(fs.readFileSync(SETTINGS_FILE, 'utf8'));
-      return { ...defaults, ...data };
+      const merged = { ...defaults, ...data };
+      // If previous downloadPath was the default ~/Downloads/TailShare but Drive D is available, upgrade it to Drive D
+      if (merged.downloadPath.includes('Downloads/TailShare') && (fs.existsSync('/media/cuker/Data') || fs.existsSync('D:\\'))) {
+        merged.downloadPath = getDefaultStoragePath();
+      }
+      return merged;
     }
   } catch {}
   return defaults;
@@ -127,18 +145,27 @@ export async function createTailShareServer(portOverride = null) {
 
   clipboardManager.startMonitoring();
 
-  // Multer Storage Configuration
+  // Start live folder watcher for automatic sync with Web
+  storageManager.startWatcher((updatedFiles) => {
+    broadcast('files:updated', { allFiles: updatedFiles });
+  });
+
+  // Multer Storage Configuration (Clean original filenames into Drive D / tailshare)
   const multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, storageManager.downloadDir);
     },
     filename: (req, file, cb) => {
-      // Decode URI components or unicode characters properly
       const originalName = Buffer.from(file.originalname, 'latin1').toString('utf8');
       const ext = path.extname(originalName);
-      const base = path.basename(originalName, ext).replace(/[^a-zA-Z0-9_\u00C0-\u017F-]/g, '_');
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E6);
-      cb(null, `${base}-${uniqueSuffix}${ext}`);
+      const base = path.basename(originalName, ext);
+      let targetName = originalName;
+      let counter = 1;
+      while (fs.existsSync(path.join(storageManager.downloadDir, targetName))) {
+        targetName = `${base}_${counter}${ext}`;
+        counter++;
+      }
+      cb(null, targetName);
     }
   });
 
@@ -166,6 +193,7 @@ export async function createTailShareServer(portOverride = null) {
         tailscale,
         port: PORT,
         webUrl: `http://${tailscale.ip}:${PORT}`,
+        storageDir: storageManager.downloadDir,
         activeClients: clientList,
         settings,
         stats: {
@@ -214,7 +242,7 @@ export async function createTailShareServer(portOverride = null) {
 
       const sender = sourceDevice || 'Mobile Device';
       
-      // Update Linux system clipboard if requested or autoSync is on
+      // Update Linux / Windows system clipboard if requested or autoSync is on
       if (copyToPc !== false) {
         await clipboardManager.setNativeClipboard(text);
         if (settings.desktopNotifications) {
@@ -290,6 +318,7 @@ export async function createTailShareServer(portOverride = null) {
   app.get('/api/files', (req, res) => {
     res.json({
       success: true,
+      storageDir: storageManager.downloadDir,
       files: storageManager.getFiles()
     });
   });
@@ -305,7 +334,7 @@ export async function createTailShareServer(portOverride = null) {
 
       for (const file of req.files) {
         const originalName = Buffer.from(file.originalname, 'latin1').toString('utf8');
-        const record = storageManager.addFile({
+        const record = storageManager.registerUploadedFile({
           originalName,
           savedName: file.filename,
           size: file.size,
@@ -315,7 +344,9 @@ export async function createTailShareServer(portOverride = null) {
         uploadedRecords.push(record);
       }
 
-      // Notify Linux desktop
+      const allCurrentFiles = storageManager.getFiles();
+
+      // Notify desktop
       if (settings.desktopNotifications) {
         const fileNames = uploadedRecords.map(r => r.originalName).join(', ');
         const summary = uploadedRecords.length === 1
@@ -324,8 +355,8 @@ export async function createTailShareServer(portOverride = null) {
         clipboardManager.sendDesktopNotification(`📁 Received from ${sender}`, summary);
       }
 
-      broadcast('files:new', { files: uploadedRecords, allFiles: storageManager.getFiles() });
-      res.json({ success: true, uploaded: uploadedRecords });
+      broadcast('files:updated', { files: uploadedRecords, allFiles: allCurrentFiles });
+      res.json({ success: true, uploaded: uploadedRecords, allFiles: allCurrentFiles });
     } catch (err) {
       res.status(500).json({ success: false, error: err.message });
     }

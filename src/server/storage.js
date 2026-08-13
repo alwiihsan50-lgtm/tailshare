@@ -2,27 +2,39 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { exec } from 'child_process';
-import crypto from 'crypto';
+import mime from 'mime-types';
 
 export class StorageManager {
   constructor(customDir = null) {
     if (customDir) {
       this.downloadDir = customDir;
     } else if (os.platform() === 'win32') {
-      // Check if D:\tailscale or D:\ exists on Windows
-      if (fs.existsSync('D:\\tailscale')) {
-        this.downloadDir = 'D:\\tailscale';
+      // Windows: Prioritize D:\tailshare if D: drive exists
+      if (fs.existsSync('D:\\tailshare')) {
+        this.downloadDir = 'D:\\tailshare';
       } else if (fs.existsSync('D:\\')) {
-        this.downloadDir = 'D:\\Downloads\\TailShare';
+        this.downloadDir = 'D:\\tailshare';
       } else {
         this.downloadDir = path.join(os.homedir(), 'Downloads', 'TailShare');
       }
     } else {
-      this.downloadDir = path.join(os.homedir(), 'Downloads', 'TailShare');
+      // Linux / Unix: Prioritize /media/cuker/Data/tailshare (Drive D)
+      if (fs.existsSync('/media/cuker/Data/tailshare')) {
+        this.downloadDir = '/media/cuker/Data/tailshare';
+      } else if (fs.existsSync('/media/cuker/Data')) {
+        this.downloadDir = '/media/cuker/Data/tailshare';
+      } else {
+        this.downloadDir = path.join(os.homedir(), 'Downloads', 'TailShare');
+      }
     }
 
     this.metaFile = path.join(this.downloadDir, '.tailshare_meta.json');
+    this.metaStore = new Map(); // filename -> { senderDevice, id, createdAt }
     this.files = [];
+    this.watcher = null;
+    this.watchDebounce = null;
+    this.onFilesChangeCallback = null;
+
     this.init();
   }
 
@@ -34,66 +46,152 @@ export class StorageManager {
         console.error('Failed to create storage dir:', e);
       }
     }
+
+    // On Linux, symlink ~/Downloads/TailShare -> Drive D /media/cuker/Data/tailshare if available
+    if (os.platform() === 'linux' && this.downloadDir === '/media/cuker/Data/tailshare') {
+      try {
+        const userDownloadTailShare = path.join(os.homedir(), 'Downloads', 'TailShare');
+        if (!fs.existsSync(userDownloadTailShare)) {
+          fs.symlinkSync(this.downloadDir, userDownloadTailShare, 'dir');
+        }
+      } catch (e) {
+        // Ignore symlink failure
+      }
+    }
+
     this.loadMeta();
+    this.scanFolder();
   }
 
   loadMeta() {
     try {
       if (fs.existsSync(this.metaFile)) {
         const raw = fs.readFileSync(this.metaFile, 'utf8');
-        this.files = JSON.parse(raw);
-        // Verify files still exist on disk
-        this.files = this.files.filter(f => fs.existsSync(f.filePath));
-      } else {
-        this.files = [];
+        const list = JSON.parse(raw);
+        for (const item of list) {
+          if (item && item.savedName) {
+            this.metaStore.set(item.savedName, item);
+          }
+        }
       }
     } catch {
-      this.files = [];
+      this.metaStore = new Map();
     }
   }
 
   saveMeta() {
     try {
-      fs.writeFileSync(this.metaFile, JSON.stringify(this.files, null, 2), 'utf8');
+      const list = Array.from(this.metaStore.values());
+      fs.writeFileSync(this.metaFile, JSON.stringify(list, null, 2), 'utf8');
     } catch (err) {
       console.error('Failed to save metadata:', err);
     }
   }
 
+  scanFolder() {
+    if (!fs.existsSync(this.downloadDir)) {
+      this.files = [];
+      return [];
+    }
+
+    try {
+      const entries = fs.readdirSync(this.downloadDir, { withFileTypes: true });
+      const currentFiles = [];
+
+      for (const entry of entries) {
+        // Skip hidden files and meta files
+        if (entry.name.startsWith('.')) continue;
+
+        if (entry.isFile()) {
+          const filePath = path.join(this.downloadDir, entry.name);
+          try {
+            const stats = fs.statSync(filePath);
+            const originalName = entry.name;
+            const mimeType = mime.lookup(entry.name) || 'application/octet-stream';
+            const fileId = Buffer.from(entry.name).toString('hex').slice(0, 24);
+
+            const meta = this.metaStore.get(entry.name);
+            const senderDevice = meta?.senderDevice || 'Storage (Drive D)';
+            const createdAt = meta?.createdAt || Math.floor(stats.mtimeMs);
+
+            currentFiles.push({
+              id: fileId,
+              originalName,
+              savedName: entry.name,
+              size: stats.size,
+              mimeType,
+              senderDevice,
+              filePath,
+              createdAt
+            });
+          } catch (err) {
+            // Ignore stat errors
+          }
+        }
+      }
+
+      // Sort newest modified first
+      currentFiles.sort((a, b) => b.createdAt - a.createdAt);
+      this.files = currentFiles;
+      return this.files;
+    } catch (err) {
+      console.error('Error scanning TailShare folder:', err);
+      return [];
+    }
+  }
+
+  startWatcher(onFilesChange) {
+    this.onFilesChangeCallback = onFilesChange;
+    if (this.watcher) return;
+
+    try {
+      this.watcher = fs.watch(this.downloadDir, (eventType, filename) => {
+        if (!filename || filename.startsWith('.')) return;
+
+        clearTimeout(this.watchDebounce);
+        this.watchDebounce = setTimeout(() => {
+          const updatedFiles = this.scanFolder();
+          if (this.onFilesChangeCallback) {
+            this.onFilesChangeCallback(updatedFiles);
+          }
+        }, 250);
+      });
+    } catch (err) {
+      console.error('Failed to start folder watcher:', err);
+    }
+  }
+
   getFiles() {
-    // Re-verify existence
-    this.files = this.files.filter(f => fs.existsSync(f.filePath));
-    return this.files;
+    return this.scanFolder();
   }
 
   getFile(id) {
+    this.scanFolder();
     return this.files.find(f => f.id === id);
   }
 
-  addFile({ originalName, savedName, size, mimeType, senderDevice }) {
-    const filePath = path.join(this.downloadDir, savedName);
-    const id = crypto.randomUUID();
-
-    const fileRecord = {
-      id,
+  registerUploadedFile({ originalName, savedName, size, mimeType, senderDevice }) {
+    const fileId = Buffer.from(savedName).toString('hex').slice(0, 24);
+    const metaRecord = {
+      id: fileId,
       originalName,
       savedName,
       size,
-      mimeType: mimeType || 'application/octet-stream',
-      senderDevice: senderDevice || 'Unknown Device',
-      filePath,
+      mimeType: mimeType || mime.lookup(savedName) || 'application/octet-stream',
+      senderDevice: senderDevice || 'Mobile Device',
+      filePath: path.join(this.downloadDir, savedName),
       createdAt: Date.now()
     };
 
-    this.files.unshift(fileRecord);
+    this.metaStore.set(savedName, metaRecord);
     this.saveMeta();
-    return fileRecord;
+    this.scanFolder();
+    return metaRecord;
   }
 
   deleteFile(id) {
-    const idx = this.files.findIndex(f => f.id === id);
-    if (idx !== -1) {
-      const file = this.files[idx];
+    const file = this.getFile(id);
+    if (file) {
       try {
         if (fs.existsSync(file.filePath)) {
           fs.unlinkSync(file.filePath);
@@ -101,8 +199,9 @@ export class StorageManager {
       } catch (err) {
         console.error('Failed to remove file from disk:', err);
       }
-      this.files.splice(idx, 1);
+      this.metaStore.delete(file.savedName);
       this.saveMeta();
+      this.scanFolder();
       return true;
     }
     return false;

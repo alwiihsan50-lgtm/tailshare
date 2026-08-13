@@ -68,6 +68,7 @@
     uploadSpeed: document.getElementById('uploadSpeed'),
     uploadTransferred: document.getElementById('uploadTransferred'),
     filesCountBadge: document.getElementById('filesCountBadge'),
+    folderSyncBadge: document.getElementById('folderSyncBadge'),
     btnOpenDownloadsFolder: document.getElementById('btnOpenDownloadsFolder'),
     filesGrid: document.getElementById('filesGrid'),
     filesEmptyState: document.getElementById('filesEmptyState'),
@@ -306,10 +307,13 @@
         break;
 
       case 'files:new':
+      case 'files:updated':
         state.files = msg.payload.allFiles || [];
         renderFiles();
-        playAudioChime();
-        showToast('📁 File baru diterima', 'success');
+        if (msg.payload.files && msg.payload.files.length > 0) {
+          playAudioChime();
+          showToast('📁 Folder TailShare tersinkronisasi', 'success');
+        }
         break;
 
       case 'files:deleted':
@@ -351,6 +355,11 @@
         el.tsDnsName.textContent = data.tailscale.dnsName || '-';
         el.tsAccount.textContent = data.tailscale.user?.name ? `${data.tailscale.user.name} (${data.tailscale.user.login})` : (data.tailscale.tailnet || 'Terkoneksi');
         
+        if (data.storageDir) {
+          if (el.folderSyncBadge) el.folderSyncBadge.textContent = '📁 ' + data.storageDir;
+          if (el.settingDownloadPathText) el.settingDownloadPathText.textContent = data.storageDir;
+        }
+
         renderPeers();
       }
     } catch (err) {
@@ -550,10 +559,10 @@
 
       card.innerHTML = `
         ${isImg ? `
-          <img src="/api/files/preview/${file.id}" alt="${escapeHtml(file.originalName)}" class="file-preview-thumb" loading="lazy">
+          <img src="/api/files/preview/${file.id}" alt="${escapeHtml(file.originalName)}" class="file-preview-thumb" loading="lazy" title="Klik untuk melihat foto langsung">
         ` : ''}
 
-        <div class="file-card-header">
+        <div class="file-card-header file-clickable-header" title="Klik untuk membuka / melihat file">
           <div class="file-type-icon">${typeInfo.icon}</div>
           <div class="file-meta-col">
             <div class="file-name-text" title="${escapeHtml(file.originalName)}">${escapeHtml(file.originalName)}</div>
@@ -565,22 +574,33 @@
 
         <div class="file-card-footer">
           <div class="file-actions">
-            <a href="/api/files/download/${file.id}" class="btn btn-secondary btn-sm" download="${escapeHtml(file.originalName)}" title="Unduh File">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                <polyline points="7 10 12 15 17 10"/>
-                <line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-              <span>Unduh</span>
-            </a>
-
             ${typeInfo.previewable ? `
-              <button class="btn btn-ghost btn-sm btn-preview-file" title="Lihat Preview">
+              <button class="btn btn-primary btn-sm btn-preview-file" title="Buka dan lihat langsung di browser">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                   <circle cx="12" cy="12" r="3"/>
                 </svg>
+                <span>Buka</span>
               </button>
+            ` : `
+              <a href="/api/files/download/${file.id}" class="btn btn-secondary btn-sm" download="${escapeHtml(file.originalName)}" title="Unduh File">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>Unduh</span>
+              </a>
+            `}
+
+            ${typeInfo.previewable ? `
+              <a href="/api/files/download/${file.id}" class="btn btn-ghost btn-sm" download="${escapeHtml(file.originalName)}" title="Simpan / Download File">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </a>
             ` : ''}
 
             ${isElectron ? `
@@ -606,6 +626,12 @@
       const thumb = card.querySelector('.file-preview-thumb');
       if (thumb) {
         thumb.addEventListener('click', () => openPreviewModal(file, typeInfo));
+      }
+
+      // Header click to open preview
+      const headerClick = card.querySelector('.file-clickable-header');
+      if (headerClick) {
+        headerClick.addEventListener('click', () => openPreviewModal(file, typeInfo));
       }
 
       // Preview Button Click
