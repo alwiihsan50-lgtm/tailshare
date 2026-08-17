@@ -10,7 +10,7 @@
     connected: false,
     ws: null,
     tailscale: null,
-    port: window.location.port || 53317,
+    port: window.location.port || 40506,
     webUrl: window.location.origin,
     qrDataUrl: null,
     clipboardHistory: [],

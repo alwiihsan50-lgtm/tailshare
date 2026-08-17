@@ -66,7 +66,7 @@ echo.
 :: 5. Create Desktop Shortcut
 echo [5/5] Membuat Shortcut di Desktop...
 set "DESKTOP_FOLDER=%USERPROFILE%\Desktop"
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$s=(New-Object -COM WScript.Shell).CreateShortcut('%DESKTOP_FOLDER%\TailShare.url'); $s.TargetPath='http://localhost:53317'; $s.Save()" >nul
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$s=(New-Object -COM WScript.Shell).CreateShortcut('%DESKTOP_FOLDER%\TailShare.url'); $s.TargetPath='http://localhost:40506'; $s.Save()" >nul
 echo    [OK] Shortcut 'TailShare' berhasil dibuat di Desktop Anda!
 echo.
 
@@ -80,8 +80,8 @@ color 0A
 echo.
 echo INSTALLASI SELESAI DAN SUKSES!
 echo ----------------------------------------------------------------------------
-echo Server TailShare sudah otomatis berjalan di background (Port 53317).
-echo Anda dapat membuka web app di browser: http://localhost:53317
+echo Server TailShare sudah otomatis berjalan di background (Port 40506).
+echo Anda dapat membuka web app di browser: http://localhost:40506
 echo TailShare akan OTOMATIS BERJALAN setiap kali Windows dinyalakan!
 echo ============================================================================
 echo.

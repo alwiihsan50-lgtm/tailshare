@@ -95,9 +95,9 @@ loginctl enable-linger $USER
 1. Connect your phone to Tailscale.
 2. Open Safari (iOS) or Chrome (Android) and navigate to:
    ```
-   http://<YOUR_TAILSCALE_IP>:53317
+   http://<YOUR_TAILSCALE_IP>:40506
    ```
-   *(e.g., `http://100.110.205.27:53317` or scan the dynamic QR Code on your PC screen).*
+   *(e.g., `http://100.110.205.27:40506` or scan the dynamic QR Code on your PC screen).*
 3. **iPhone Tip (PWA)**:
    - Tap the **Share** button in Safari -> **"Add to Home Screen"**.
    - TailShare will launch as a fullscreen native app without browser URL bars.

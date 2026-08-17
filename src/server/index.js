@@ -62,7 +62,7 @@ function getDefaultStoragePath() {
 
 function loadSettings() {
   const defaults = {
-    port: 53317,
+    port: 40506,
     autoSyncClipboard: true,
     soundNotifications: true,
     desktopNotifications: true,
@@ -109,7 +109,7 @@ function saveClipboardHistory(history) {
 
 export async function createTailShareServer(portOverride = null) {
   const settings = loadSettings();
-  const PORT = portOverride || process.env.PORT || settings.port || 53317;
+  const PORT = portOverride || process.env.PORT || settings.port || 40506;
 
   const app = express();
   const server = http.createServer(app);

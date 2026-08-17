@@ -163,7 +163,7 @@ if (!gotTheLock) {
   });
 
   app.whenReady().then(async () => {
-    let serverPort = 53317;
+    let serverPort = 40506;
     let tailscaleInfo = { ip: '127.0.0.1', hostname: 'PC', peers: [] };
 
     // Check if background server is already running
