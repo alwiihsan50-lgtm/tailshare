@@ -11,10 +11,9 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": "storagemanager",
       "id": "src_server_storage_storagemanager",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": "storagemanager"
     },
     {
       "label": "ClipboardManager",
@@ -24,10 +23,9 @@
       "_callable": true,
       "_callable_class": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": "clipboardmanager",
       "id": "src_server_clipboard_clipboardmanager",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": "clipboardmanager"
     },
     {
       "label": "applySettingsToUI()",
@@ -36,10 +34,9 @@
       "source_location": "L751",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "applysettingstoui()",
       "id": "src_public_js_app_applysettingstoui",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "applysettingstoui()"
     },
     {
       "label": "copyTextToClipboard()",
@@ -48,10 +45,9 @@
       "source_location": "L217",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "copytexttoclipboard()",
       "id": "src_public_js_app_copytexttoclipboard",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "copytexttoclipboard()"
     },
     {
       "label": "detectDeviceName()",
@@ -60,10 +56,9 @@
       "source_location": "L111",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "detectdevicename()",
       "id": "src_public_js_app_detectdevicename",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "detectdevicename()"
     },
     {
       "label": "escapeHtml()",
@@ -72,10 +67,9 @@
       "source_location": "L185",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "escapehtml()",
       "id": "src_public_js_app_escapehtml",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "escapehtml()"
     },
     {
       "label": "fetchQrCode()",
@@ -84,10 +78,9 @@
       "source_location": "L370",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "fetchqrcode()",
       "id": "src_public_js_app_fetchqrcode",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "fetchqrcode()"
     },
     {
       "label": "fetchStatus()",
@@ -96,10 +89,9 @@
       "source_location": "L341",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "fetchstatus()",
       "id": "src_public_js_app_fetchstatus",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "fetchstatus()"
     },
     {
       "label": "formatBytes()",
@@ -108,10 +100,9 @@
       "source_location": "L192",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "formatbytes()",
       "id": "src_public_js_app_formatbytes",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "formatbytes()"
     },
     {
       "label": "formatTimeAgo()",
@@ -120,10 +111,9 @@
       "source_location": "L201",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "formattimeago()",
       "id": "src_public_js_app_formattimeago",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "formattimeago()"
     },
     {
       "label": "getFileTypeInfo()",
@@ -132,10 +122,9 @@
       "source_location": "L514",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "getfiletypeinfo()",
       "id": "src_public_js_app_getfiletypeinfo",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "getfiletypeinfo()"
     },
     {
       "label": "handleServerMessage()",
@@ -144,10 +133,9 @@
       "source_location": "L280",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "handleservermessage()",
       "id": "src_public_js_app_handleservermessage",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "handleservermessage()"
     },
     {
       "label": "init()",
@@ -156,10 +144,9 @@
       "source_location": "L1045",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "init()",
       "id": "src_public_js_app_init",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "init()"
     },
     {
       "label": "initEventListeners()",
@@ -168,10 +155,9 @@
       "source_location": "L815",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "initeventlisteners()",
       "id": "src_public_js_app_initeventlisteners",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "initeventlisteners()"
     },
     {
       "label": "saveSettings()",
@@ -180,10 +166,9 @@
       "source_location": "L1000",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "savesettings()",
       "id": "src_public_js_app_initeventlisteners_savesettings",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "savesettings()"
     },
     {
       "label": "initWebSocket()",
@@ -192,10 +177,9 @@
       "source_location": "L242",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "initwebsocket()",
       "id": "src_public_js_app_initwebsocket",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "initwebsocket()"
     },
     {
       "label": "isUrl()",
@@ -204,10 +188,9 @@
       "source_location": "L213",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "isurl()",
       "id": "src_public_js_app_isurl",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "isurl()"
     },
     {
       "label": "openPreviewModal()",
@@ -216,10 +199,9 @@
       "source_location": "L667",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "openpreviewmodal()",
       "id": "src_public_js_app_openpreviewmodal",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "openpreviewmodal()"
     },
     {
       "label": "playAudioChime()",
@@ -228,10 +210,9 @@
       "source_location": "L133",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "playaudiochime()",
       "id": "src_public_js_app_playaudiochime",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "playaudiochime()"
     },
     {
       "label": "renderClipboard()",
@@ -240,10 +221,9 @@
       "source_location": "L388",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "renderclipboard()",
       "id": "src_public_js_app_renderclipboard",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "renderclipboard()"
     },
     {
       "label": "renderFiles()",
@@ -252,10 +232,9 @@
       "source_location": "L537",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "renderfiles()",
       "id": "src_public_js_app_renderfiles",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "renderfiles()"
     },
     {
       "label": "renderPeers()",
@@ -264,10 +243,9 @@
       "source_location": "L713",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "renderpeers()",
       "id": "src_public_js_app_renderpeers",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "renderpeers()"
     },
     {
       "label": "showToast()",
@@ -276,10 +254,9 @@
       "source_location": "L165",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "showtoast()",
       "id": "src_public_js_app_showtoast",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "showtoast()"
     },
     {
       "label": "updateDevicesCount()",
@@ -288,10 +265,9 @@
       "source_location": "L335",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "updatedevicescount()",
       "id": "src_public_js_app_updatedevicescount",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "updatedevicescount()"
     },
     {
       "label": "uploadFiles()",
@@ -300,10 +276,9 @@
       "source_location": "L758",
       "_callable": true,
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "uploadfiles()",
       "id": "src_public_js_app_uploadfiles",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "uploadfiles()"
     },
     {
       "label": "createTray()",
@@ -312,10 +287,9 @@
       "source_location": "L81",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "norm_label": "createtray()",
       "id": "src_electron_main_createtray",
-      "community_name": "main.js"
+      "community": 1,
+      "norm_label": "createtray()"
     },
     {
       "label": "createWindow()",
@@ -324,82 +298,9 @@
       "source_location": "L41",
       "_callable": true,
       "_origin": "ast",
-      "community": 1,
-      "norm_label": "createwindow()",
       "id": "src_electron_main_createwindow",
-      "community_name": "main.js"
-    },
-    {
-      "label": "getDefaultStoragePath()",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L50",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "getdefaultstoragepath()",
-      "id": "src_server_index_getdefaultstoragepath",
-      "community_name": "index.js"
-    },
-    {
-      "label": "loadClipboardHistory()",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L93",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "loadclipboardhistory()",
-      "id": "src_server_index_loadclipboardhistory",
-      "community_name": "index.js"
-    },
-    {
-      "label": "loadSettings()",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L63",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "loadsettings()",
-      "id": "src_server_index_loadsettings",
-      "community_name": "index.js"
-    },
-    {
-      "label": "logServer()",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L28",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "logserver()",
-      "id": "src_server_index_logserver",
-      "community_name": "index.js"
-    },
-    {
-      "label": "saveClipboardHistory()",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L102",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "saveclipboardhistory()",
-      "id": "src_server_index_saveclipboardhistory",
-      "community_name": "index.js"
-    },
-    {
-      "label": "saveSettings()",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L85",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "savesettings()",
-      "id": "src_server_index_savesettings",
-      "community_name": "index.js"
+      "community": 1,
+      "norm_label": "createwindow()"
     },
     {
       "label": "getTailscaleInfo()",
@@ -414,16 +315,81 @@
       "id": "src_server_tailscale_gettailscaleinfo"
     },
     {
+      "label": "getDefaultStoragePath()",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L50",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_server_index_getdefaultstoragepath",
+      "community": 2,
+      "norm_label": "getdefaultstoragepath()"
+    },
+    {
+      "label": "loadClipboardHistory()",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L93",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_server_index_loadclipboardhistory",
+      "community": 2,
+      "norm_label": "loadclipboardhistory()"
+    },
+    {
+      "label": "loadSettings()",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L63",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_server_index_loadsettings",
+      "community": 2,
+      "norm_label": "loadsettings()"
+    },
+    {
+      "label": "logServer()",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L28",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_server_index_logserver",
+      "community": 2,
+      "norm_label": "logserver()"
+    },
+    {
+      "label": "saveClipboardHistory()",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L102",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_server_index_saveclipboardhistory",
+      "community": 2,
+      "norm_label": "saveclipboardhistory()"
+    },
+    {
+      "label": "saveSettings()",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L85",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "src_server_index_savesettings",
+      "community": 2,
+      "norm_label": "savesettings()"
+    },
+    {
       "label": "createTailShareServer()",
       "file_type": "code",
       "source_file": "src/server/index.js",
       "source_location": "L110",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": "createtailshareserver()",
       "id": "src_server_index_createtailshareserver",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": "createtailshareserver()"
     },
     {
       "label": "broadcast()",
@@ -432,10 +398,9 @@
       "source_location": "L126",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": "broadcast()",
       "id": "src_server_index_createtailshareserver_broadcast",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": "broadcast()"
     },
     {
       "label": ".constructor()",
@@ -444,10 +409,9 @@
       "source_location": "L8",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".constructor()",
       "id": "src_server_storage_storagemanager_constructor",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".constructor()"
     },
     {
       "label": ".deleteFile()",
@@ -456,10 +420,9 @@
       "source_location": "L195",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".deletefile()",
       "id": "src_server_storage_storagemanager_deletefile",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".deletefile()"
     },
     {
       "label": ".getFile()",
@@ -468,10 +431,9 @@
       "source_location": "L171",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".getfile()",
       "id": "src_server_storage_storagemanager_getfile",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".getfile()"
     },
     {
       "label": ".getFiles()",
@@ -480,10 +442,9 @@
       "source_location": "L167",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".getfiles()",
       "id": "src_server_storage_storagemanager_getfiles",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".getfiles()"
     },
     {
       "label": ".init()",
@@ -492,10 +453,9 @@
       "source_location": "L41",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".init()",
       "id": "src_server_storage_storagemanager_init",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".init()"
     },
     {
       "label": ".loadMeta()",
@@ -504,10 +464,9 @@
       "source_location": "L66",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".loadmeta()",
       "id": "src_server_storage_storagemanager_loadmeta",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".loadmeta()"
     },
     {
       "label": ".openDownloadFolder()",
@@ -516,10 +475,9 @@
       "source_location": "L213",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".opendownloadfolder()",
       "id": "src_server_storage_storagemanager_opendownloadfolder",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".opendownloadfolder()"
     },
     {
       "label": ".openSpecificFile()",
@@ -528,10 +486,9 @@
       "source_location": "L229",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".openspecificfile()",
       "id": "src_server_storage_storagemanager_openspecificfile",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".openspecificfile()"
     },
     {
       "label": ".registerUploadedFile()",
@@ -540,10 +497,9 @@
       "source_location": "L176",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".registeruploadedfile()",
       "id": "src_server_storage_storagemanager_registeruploadedfile",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".registeruploadedfile()"
     },
     {
       "label": ".saveMeta()",
@@ -552,10 +508,9 @@
       "source_location": "L82",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".savemeta()",
       "id": "src_server_storage_storagemanager_savemeta",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".savemeta()"
     },
     {
       "label": ".scanFolder()",
@@ -564,10 +519,9 @@
       "source_location": "L91",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".scanfolder()",
       "id": "src_server_storage_storagemanager_scanfolder",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".scanfolder()"
     },
     {
       "label": ".startWatcher()",
@@ -576,10 +530,9 @@
       "source_location": "L143",
       "_callable": true,
       "_origin": "ast",
-      "community": 3,
-      "norm_label": ".startwatcher()",
       "id": "src_server_storage_storagemanager_startwatcher",
-      "community_name": "createTailShareServer"
+      "community": 3,
+      "norm_label": ".startwatcher()"
     },
     {
       "label": ".constructor()",
@@ -588,10 +541,9 @@
       "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".constructor()",
       "id": "src_server_clipboard_clipboardmanager_constructor",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".constructor()"
     },
     {
       "label": ".getNativeClipboard()",
@@ -600,10 +552,9 @@
       "source_location": "L23",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".getnativeclipboard()",
       "id": "src_server_clipboard_clipboardmanager_getnativeclipboard",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".getnativeclipboard()"
     },
     {
       "label": ".hash()",
@@ -612,10 +563,9 @@
       "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".hash()",
       "id": "src_server_clipboard_clipboardmanager_hash",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".hash()"
     },
     {
       "label": ".sendDesktopNotification()",
@@ -624,10 +574,9 @@
       "source_location": "L123",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".senddesktopnotification()",
       "id": "src_server_clipboard_clipboardmanager_senddesktopnotification",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".senddesktopnotification()"
     },
     {
       "label": ".setAutoSync()",
@@ -636,10 +585,9 @@
       "source_location": "L198",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".setautosync()",
       "id": "src_server_clipboard_clipboardmanager_setautosync",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".setautosync()"
     },
     {
       "label": ".setNativeClipboard()",
@@ -648,10 +596,9 @@
       "source_location": "L58",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".setnativeclipboard()",
       "id": "src_server_clipboard_clipboardmanager_setnativeclipboard",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".setnativeclipboard()"
     },
     {
       "label": ".startMonitoring()",
@@ -660,10 +607,9 @@
       "source_location": "L155",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".startmonitoring()",
       "id": "src_server_clipboard_clipboardmanager_startmonitoring",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".startmonitoring()"
     },
     {
       "label": ".stopMonitoring()",
@@ -672,10 +618,9 @@
       "source_location": "L190",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
-      "norm_label": ".stopmonitoring()",
       "id": "src_server_clipboard_clipboardmanager_stopmonitoring",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": ".stopmonitoring()"
     },
     {
       "label": "app.js",
@@ -683,10 +628,9 @@
       "source_file": "src/public/js/app.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
-      "norm_label": "app.js",
       "id": "src_public_js_app",
-      "community_name": "app.js"
+      "community": 0,
+      "norm_label": "app.js"
     },
     {
       "label": "electron",
@@ -695,9 +639,20 @@
       "source_location": "L26",
       "_origin": "ast",
       "community": 1,
-      "community_name": "main.js",
+      "community_name": "dependencies",
       "norm_label": "electron",
       "id": "package_dependencies_electron"
+    },
+    {
+      "label": "electron",
+      "file_type": "concept",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "dependencies",
+      "norm_label": "electron",
+      "id": "electron"
     },
     {
       "label": "keywords",
@@ -709,72 +664,6 @@
       "community_name": "main.js",
       "norm_label": "keywords",
       "id": "package_keywords"
-    },
-    {
-      "label": "main.js",
-      "file_type": "code",
-      "source_file": "src/electron/main.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "main.js",
-      "id": "src_electron_main",
-      "community_name": "main.js"
-    },
-    {
-      "label": "appIconPath",
-      "file_type": "code",
-      "source_file": "src/electron/main.js",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "appiconpath",
-      "id": "src_electron_main_appiconpath",
-      "community_name": "main.js"
-    },
-    {
-      "label": "__dirname",
-      "file_type": "code",
-      "source_file": "src/electron/main.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "__dirname",
-      "id": "src_electron_main_dirname",
-      "community_name": "main.js"
-    },
-    {
-      "label": "__filename",
-      "file_type": "code",
-      "source_file": "src/electron/main.js",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "__filename",
-      "id": "src_electron_main_filename",
-      "community_name": "main.js"
-    },
-    {
-      "label": "gotTheLock",
-      "file_type": "code",
-      "source_file": "src/electron/main.js",
-      "source_location": "L152",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "gotthelock",
-      "id": "src_electron_main_gotthelock",
-      "community_name": "main.js"
-    },
-    {
-      "label": "trayIconPath",
-      "file_type": "code",
-      "source_file": "src/electron/main.js",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 1,
-      "norm_label": "trayiconpath",
-      "id": "src_electron_main_trayiconpath",
-      "community_name": "main.js"
     },
     {
       "label": "preload.cjs",
@@ -808,17 +697,6 @@
       "community_name": "main.js",
       "norm_label": "preload.js",
       "id": "src_electron_preload_js_src_electron_preload"
-    },
-    {
-      "label": "electron",
-      "file_type": "concept",
-      "source_file": "package.json",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 1,
-      "community_name": "main.js",
-      "norm_label": "electron",
-      "id": "electron"
     },
     {
       "label": "clipboard",
@@ -865,103 +743,64 @@
       "id": "ref_tailscale"
     },
     {
-      "label": "index.js",
+      "label": "main.js",
       "file_type": "code",
-      "source_file": "src/server/index.js",
+      "source_file": "src/electron/main.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "index.js",
-      "id": "src_server_index",
-      "community_name": "index.js"
+      "id": "src_electron_main",
+      "community": 1,
+      "norm_label": "main.js"
     },
     {
-      "label": "CONFIG_DIR",
+      "label": "appIconPath",
       "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L20",
+      "source_file": "src/electron/main.js",
+      "source_location": "L31",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "config_dir",
-      "id": "src_server_index_config_dir",
-      "community_name": "index.js"
+      "id": "src_electron_main_appiconpath",
+      "community": 1,
+      "norm_label": "appiconpath"
     },
     {
       "label": "__dirname",
       "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L18",
+      "source_file": "src/electron/main.js",
+      "source_location": "L23",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "__dirname",
-      "id": "src_server_index_dirname",
-      "community_name": "index.js"
+      "id": "src_electron_main_dirname",
+      "community": 1,
+      "norm_label": "__dirname"
     },
     {
       "label": "__filename",
       "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L17",
+      "source_file": "src/electron/main.js",
+      "source_location": "L22",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "__filename",
-      "id": "src_server_index_filename",
-      "community_name": "index.js"
+      "id": "src_electron_main_filename",
+      "community": 1,
+      "norm_label": "__filename"
     },
     {
-      "label": "HISTORY_FILE",
+      "label": "gotTheLock",
       "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L48",
+      "source_file": "src/electron/main.js",
+      "source_location": "L152",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "history_file",
-      "id": "src_server_index_history_file",
-      "community_name": "index.js"
+      "id": "src_electron_main_gotthelock",
+      "community": 1,
+      "norm_label": "gotthelock"
     },
     {
-      "label": "LOG_FILE",
+      "label": "trayIconPath",
       "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L27",
+      "source_file": "src/electron/main.js",
+      "source_location": "L30",
       "_origin": "ast",
-      "community": 2,
-      "norm_label": "log_file",
-      "id": "src_server_index_log_file",
-      "community_name": "index.js"
-    },
-    {
-      "label": "PUBLIC_DIR",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "public_dir",
-      "id": "src_server_index_public_dir",
-      "community_name": "index.js"
-    },
-    {
-      "label": "SETTINGS_FILE",
-      "file_type": "code",
-      "source_file": "src/server/index.js",
-      "source_location": "L47",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "settings_file",
-      "id": "src_server_index_settings_file",
-      "community_name": "index.js"
-    },
-    {
-      "label": "storage.js",
-      "file_type": "code",
-      "source_file": "src/server/storage.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 2,
-      "norm_label": "storage.js",
-      "id": "src_server_storage",
-      "community_name": "index.js"
+      "id": "src_electron_main_trayiconpath",
+      "community": 1,
+      "norm_label": "trayiconpath"
     },
     {
       "label": "tailscale.js",
@@ -984,6 +823,96 @@
       "community_name": "index.js",
       "norm_label": "execasync",
       "id": "src_server_tailscale_execasync"
+    },
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_server_index",
+      "community": 2,
+      "norm_label": "index.js"
+    },
+    {
+      "label": "CONFIG_DIR",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_server_index_config_dir",
+      "community": 2,
+      "norm_label": "config_dir"
+    },
+    {
+      "label": "__dirname",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_server_index_dirname",
+      "community": 2,
+      "norm_label": "__dirname"
+    },
+    {
+      "label": "__filename",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_server_index_filename",
+      "community": 2,
+      "norm_label": "__filename"
+    },
+    {
+      "label": "HISTORY_FILE",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "src_server_index_history_file",
+      "community": 2,
+      "norm_label": "history_file"
+    },
+    {
+      "label": "LOG_FILE",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_server_index_log_file",
+      "community": 2,
+      "norm_label": "log_file"
+    },
+    {
+      "label": "PUBLIC_DIR",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_server_index_public_dir",
+      "community": 2,
+      "norm_label": "public_dir"
+    },
+    {
+      "label": "SETTINGS_FILE",
+      "file_type": "code",
+      "source_file": "src/server/index.js",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "src_server_index_settings_file",
+      "community": 2,
+      "norm_label": "settings_file"
+    },
+    {
+      "label": "storage.js",
+      "file_type": "code",
+      "source_file": "src/server/storage.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_server_storage",
+      "community": 2,
+      "norm_label": "storage.js"
     },
     {
       "label": "package.json",
@@ -1442,10 +1371,9 @@
       "source_file": "src/server/clipboard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 7,
-      "norm_label": "clipboard.js",
       "id": "src_server_clipboard",
-      "community_name": "ClipboardManager"
+      "community": 7,
+      "norm_label": "clipboard.js"
     },
     {
       "label": "manifest.json",
@@ -1601,9 +1529,9 @@
       "source_location": "L363",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_fetchstatus",
-      "target": "src_public_js_app_renderpeers"
+      "target": "src_public_js_app_renderpeers",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1613,9 +1541,9 @@
       "source_location": "L287",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_handleservermessage",
-      "target": "src_public_js_app_applysettingstoui"
+      "target": "src_public_js_app_applysettingstoui",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1625,9 +1553,9 @@
       "source_location": "L289",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_handleservermessage",
-      "target": "src_public_js_app_renderclipboard"
+      "target": "src_public_js_app_renderclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1637,9 +1565,9 @@
       "source_location": "L290",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_handleservermessage",
-      "target": "src_public_js_app_renderfiles"
+      "target": "src_public_js_app_renderfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1649,9 +1577,9 @@
       "source_location": "L300",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_handleservermessage",
-      "target": "src_public_js_app_playaudiochime"
+      "target": "src_public_js_app_playaudiochime",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1661,9 +1589,9 @@
       "source_location": "L301",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_handleservermessage",
-      "target": "src_public_js_app_showtoast"
+      "target": "src_public_js_app_showtoast",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1673,9 +1601,9 @@
       "source_location": "L325",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_handleservermessage",
-      "target": "src_public_js_app_updatedevicescount"
+      "target": "src_public_js_app_updatedevicescount",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1685,9 +1613,9 @@
       "source_location": "L1047",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_init",
-      "target": "src_public_js_app_initwebsocket"
+      "target": "src_public_js_app_initwebsocket",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1697,9 +1625,9 @@
       "source_location": "L1048",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_init",
-      "target": "src_public_js_app_initeventlisteners"
+      "target": "src_public_js_app_initeventlisteners",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1709,9 +1637,9 @@
       "source_location": "L1049",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_init",
-      "target": "src_public_js_app_fetchstatus"
+      "target": "src_public_js_app_fetchstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1721,9 +1649,9 @@
       "source_location": "L1050",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_init",
-      "target": "src_public_js_app_fetchqrcode"
+      "target": "src_public_js_app_fetchqrcode",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1733,9 +1661,9 @@
       "source_location": "L838",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_copytexttoclipboard"
+      "target": "src_public_js_app_copytexttoclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1745,9 +1673,9 @@
       "source_location": "L839",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_showtoast"
+      "target": "src_public_js_app_showtoast",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1757,9 +1685,9 @@
       "source_location": "L876",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_isurl"
+      "target": "src_public_js_app_isurl",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1769,9 +1697,9 @@
       "source_location": "L926",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_renderclipboard"
+      "target": "src_public_js_app_renderclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1781,9 +1709,9 @@
       "source_location": "L951",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_uploadfiles"
+      "target": "src_public_js_app_uploadfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1793,9 +1721,9 @@
       "source_location": "L979",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_fetchstatus"
+      "target": "src_public_js_app_fetchstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1805,9 +1733,9 @@
       "source_location": "L996",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_playaudiochime"
+      "target": "src_public_js_app_playaudiochime",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1817,9 +1745,9 @@
       "source_location": "L262",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initwebsocket",
-      "target": "src_public_js_app_handleservermessage"
+      "target": "src_public_js_app_handleservermessage",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1829,9 +1757,9 @@
       "source_location": "L409",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderclipboard",
-      "target": "src_public_js_app_isurl"
+      "target": "src_public_js_app_isurl",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1841,9 +1769,9 @@
       "source_location": "L421",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderclipboard",
-      "target": "src_public_js_app_escapehtml"
+      "target": "src_public_js_app_escapehtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1853,9 +1781,9 @@
       "source_location": "L423",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderclipboard",
-      "target": "src_public_js_app_formattimeago"
+      "target": "src_public_js_app_formattimeago",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1865,9 +1793,9 @@
       "source_location": "L466",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderclipboard",
-      "target": "src_public_js_app_copytexttoclipboard"
+      "target": "src_public_js_app_copytexttoclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1877,9 +1805,9 @@
       "source_location": "L473",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderclipboard",
-      "target": "src_public_js_app_showtoast"
+      "target": "src_public_js_app_showtoast",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1889,9 +1817,9 @@
       "source_location": "L552",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderfiles",
-      "target": "src_public_js_app_getfiletypeinfo"
+      "target": "src_public_js_app_getfiletypeinfo",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1901,9 +1829,9 @@
       "source_location": "L562",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderfiles",
-      "target": "src_public_js_app_escapehtml"
+      "target": "src_public_js_app_escapehtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1913,9 +1841,9 @@
       "source_location": "L570",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderfiles",
-      "target": "src_public_js_app_formatbytes"
+      "target": "src_public_js_app_formatbytes",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1925,9 +1853,9 @@
       "source_location": "L570",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderfiles",
-      "target": "src_public_js_app_formattimeago"
+      "target": "src_public_js_app_formattimeago",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1937,9 +1865,9 @@
       "source_location": "L628",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderfiles",
-      "target": "src_public_js_app_openpreviewmodal"
+      "target": "src_public_js_app_openpreviewmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1949,9 +1877,9 @@
       "source_location": "L656",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderfiles",
-      "target": "src_public_js_app_showtoast"
+      "target": "src_public_js_app_showtoast",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1961,9 +1889,9 @@
       "source_location": "L740",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_renderpeers",
-      "target": "src_public_js_app_escapehtml"
+      "target": "src_public_js_app_escapehtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1973,9 +1901,9 @@
       "source_location": "L173",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_showtoast",
-      "target": "src_public_js_app_escapehtml"
+      "target": "src_public_js_app_escapehtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1985,9 +1913,9 @@
       "source_location": "L788",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_uploadfiles",
-      "target": "src_public_js_app_formatbytes"
+      "target": "src_public_js_app_formatbytes",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -1997,9 +1925,9 @@
       "source_location": "L797",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_uploadfiles",
-      "target": "src_public_js_app_showtoast"
+      "target": "src_public_js_app_showtoast",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2009,9 +1937,9 @@
       "source_location": "L798",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_uploadfiles",
-      "target": "src_public_js_app_playaudiochime"
+      "target": "src_public_js_app_playaudiochime",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2021,9 +1949,9 @@
       "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager_startmonitoring",
-      "target": "src_server_clipboard_clipboardmanager_getnativeclipboard"
+      "target": "src_server_clipboard_clipboardmanager_getnativeclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2033,9 +1961,9 @@
       "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index_createtailshareserver",
-      "target": "src_server_index_loadsettings"
+      "target": "src_server_index_loadsettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2045,9 +1973,9 @@
       "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index_createtailshareserver",
-      "target": "src_server_index_loadclipboardhistory"
+      "target": "src_server_index_loadclipboardhistory",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2057,9 +1985,9 @@
       "source_location": "L161",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index_createtailshareserver",
-      "target": "src_server_index_saveclipboardhistory"
+      "target": "src_server_index_saveclipboardhistory",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2081,9 +2009,9 @@
       "source_location": "L447",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index_createtailshareserver",
-      "target": "src_server_index_savesettings"
+      "target": "src_server_index_savesettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2093,9 +2021,9 @@
       "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index_loadsettings",
-      "target": "src_server_index_getdefaultstoragepath"
+      "target": "src_server_index_getdefaultstoragepath",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2105,9 +2033,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_constructor",
-      "target": "src_server_storage_storagemanager_init"
+      "target": "src_server_storage_storagemanager_init",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2117,9 +2045,9 @@
       "source_location": "L196",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_deletefile",
-      "target": "src_server_storage_storagemanager_getfile"
+      "target": "src_server_storage_storagemanager_getfile",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2129,9 +2057,9 @@
       "source_location": "L206",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_deletefile",
-      "target": "src_server_storage_storagemanager_savemeta"
+      "target": "src_server_storage_storagemanager_savemeta",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2141,9 +2069,9 @@
       "source_location": "L207",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_deletefile",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2153,9 +2081,9 @@
       "source_location": "L172",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_getfile",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2165,9 +2093,9 @@
       "source_location": "L168",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_getfiles",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2177,9 +2105,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_init",
-      "target": "src_server_storage_storagemanager_loadmeta"
+      "target": "src_server_storage_storagemanager_loadmeta",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2189,9 +2117,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_init",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2201,9 +2129,9 @@
       "source_location": "L230",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_openspecificfile",
-      "target": "src_server_storage_storagemanager_getfile"
+      "target": "src_server_storage_storagemanager_getfile",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2213,9 +2141,9 @@
       "source_location": "L190",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_registeruploadedfile",
-      "target": "src_server_storage_storagemanager_savemeta"
+      "target": "src_server_storage_storagemanager_savemeta",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2225,9 +2153,9 @@
       "source_location": "L191",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_registeruploadedfile",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2237,9 +2165,9 @@
       "source_location": "L153",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager_startwatcher",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2261,9 +2189,9 @@
       "source_location": "L1000",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app_initeventlisteners",
-      "target": "src_public_js_app_initeventlisteners_savesettings"
+      "target": "src_public_js_app_initeventlisteners_savesettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2273,9 +2201,9 @@
       "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index_createtailshareserver",
-      "target": "src_server_index_createtailshareserver_broadcast"
+      "target": "src_server_index_createtailshareserver_broadcast",
+      "confidence_score": 1.0
     },
     {
       "relation": "extends",
@@ -2429,9 +2357,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_server_index_createtailshareserver"
+      "target": "src_server_index_createtailshareserver",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -2441,9 +2369,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_tailscale_gettailscaleinfo"
+      "target": "src_server_tailscale_gettailscaleinfo",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -2453,9 +2381,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_clipboard_clipboardmanager"
+      "target": "src_server_clipboard_clipboardmanager",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -2465,9 +2393,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_storage_storagemanager"
+      "target": "src_server_storage_storagemanager",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -2477,9 +2405,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "electron"
+      "target": "electron",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -2489,9 +2417,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_server_index"
+      "target": "src_server_index",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -2525,9 +2453,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_tailscale"
+      "target": "src_server_tailscale",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -2537,9 +2465,9 @@
       "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_clipboard"
+      "target": "src_server_clipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -2549,9 +2477,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_storage"
+      "target": "src_server_storage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2956,9 +2884,9 @@
       "source_location": "L152",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_gotthelock"
+      "target": "src_electron_main_gotthelock",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2967,9 +2895,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_filename"
+      "target": "src_electron_main_filename",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2978,9 +2906,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_dirname"
+      "target": "src_electron_main_dirname",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2989,9 +2917,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_trayiconpath"
+      "target": "src_electron_main_trayiconpath",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3000,9 +2928,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_appiconpath"
+      "target": "src_electron_main_appiconpath",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3011,9 +2939,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_createwindow"
+      "target": "src_electron_main_createwindow",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3022,9 +2950,9 @@
       "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_electron_main",
-      "target": "src_electron_main_createtray"
+      "target": "src_electron_main_createtray",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3044,9 +2972,9 @@
       "source_location": "L1045",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_init"
+      "target": "src_public_js_app_init",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3055,9 +2983,9 @@
       "source_location": "L111",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_detectdevicename"
+      "target": "src_public_js_app_detectdevicename",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3066,9 +2994,9 @@
       "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_playaudiochime"
+      "target": "src_public_js_app_playaudiochime",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3077,9 +3005,9 @@
       "source_location": "L165",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_showtoast"
+      "target": "src_public_js_app_showtoast",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3088,9 +3016,9 @@
       "source_location": "L185",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_escapehtml"
+      "target": "src_public_js_app_escapehtml",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3099,9 +3027,9 @@
       "source_location": "L192",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_formatbytes"
+      "target": "src_public_js_app_formatbytes",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3110,9 +3038,9 @@
       "source_location": "L201",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_formattimeago"
+      "target": "src_public_js_app_formattimeago",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3121,9 +3049,9 @@
       "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_isurl"
+      "target": "src_public_js_app_isurl",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3132,9 +3060,9 @@
       "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_copytexttoclipboard"
+      "target": "src_public_js_app_copytexttoclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3143,9 +3071,9 @@
       "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_initwebsocket"
+      "target": "src_public_js_app_initwebsocket",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3154,9 +3082,9 @@
       "source_location": "L280",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_handleservermessage"
+      "target": "src_public_js_app_handleservermessage",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3165,9 +3093,9 @@
       "source_location": "L335",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_updatedevicescount"
+      "target": "src_public_js_app_updatedevicescount",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3176,9 +3104,9 @@
       "source_location": "L341",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_fetchstatus"
+      "target": "src_public_js_app_fetchstatus",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3187,9 +3115,9 @@
       "source_location": "L370",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_fetchqrcode"
+      "target": "src_public_js_app_fetchqrcode",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3198,9 +3126,9 @@
       "source_location": "L388",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_renderclipboard"
+      "target": "src_public_js_app_renderclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3209,9 +3137,9 @@
       "source_location": "L514",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_getfiletypeinfo"
+      "target": "src_public_js_app_getfiletypeinfo",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3220,9 +3148,9 @@
       "source_location": "L537",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_renderfiles"
+      "target": "src_public_js_app_renderfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3231,9 +3159,9 @@
       "source_location": "L667",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_openpreviewmodal"
+      "target": "src_public_js_app_openpreviewmodal",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3242,9 +3170,9 @@
       "source_location": "L713",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_renderpeers"
+      "target": "src_public_js_app_renderpeers",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3253,9 +3181,9 @@
       "source_location": "L751",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_applysettingstoui"
+      "target": "src_public_js_app_applysettingstoui",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3264,9 +3192,9 @@
       "source_location": "L758",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_uploadfiles"
+      "target": "src_public_js_app_uploadfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3275,9 +3203,9 @@
       "source_location": "L815",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_public_js_app",
-      "target": "src_public_js_app_initeventlisteners"
+      "target": "src_public_js_app_initeventlisteners",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3374,9 +3302,9 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard",
-      "target": "src_server_clipboard_clipboardmanager"
+      "target": "src_server_clipboard_clipboardmanager",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3385,9 +3313,9 @@
       "source_location": "L102",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_saveclipboardhistory"
+      "target": "src_server_index_saveclipboardhistory",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3396,9 +3324,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_createtailshareserver"
+      "target": "src_server_index_createtailshareserver",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3407,9 +3335,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_filename"
+      "target": "src_server_index_filename",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3418,9 +3346,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_dirname"
+      "target": "src_server_index_dirname",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3429,9 +3357,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_public_dir"
+      "target": "src_server_index_public_dir",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3440,9 +3368,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_config_dir"
+      "target": "src_server_index_config_dir",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3451,9 +3379,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_log_file"
+      "target": "src_server_index_log_file",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3462,9 +3390,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_logserver"
+      "target": "src_server_index_logserver",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3473,9 +3401,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_settings_file"
+      "target": "src_server_index_settings_file",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3484,9 +3412,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_history_file"
+      "target": "src_server_index_history_file",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3495,9 +3423,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_getdefaultstoragepath"
+      "target": "src_server_index_getdefaultstoragepath",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3506,9 +3434,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_loadsettings"
+      "target": "src_server_index_loadsettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3517,9 +3445,9 @@
       "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_savesettings"
+      "target": "src_server_index_savesettings",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3528,9 +3456,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_index",
-      "target": "src_server_index_loadclipboardhistory"
+      "target": "src_server_index_loadclipboardhistory",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3539,9 +3467,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage",
-      "target": "src_server_storage_storagemanager"
+      "target": "src_server_storage_storagemanager",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3583,9 +3511,9 @@
       "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_senddesktopnotification"
+      "target": "src_server_clipboard_clipboardmanager_senddesktopnotification",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3594,9 +3522,9 @@
       "source_location": "L155",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_startmonitoring"
+      "target": "src_server_clipboard_clipboardmanager_startmonitoring",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3605,9 +3533,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_hash"
+      "target": "src_server_clipboard_clipboardmanager_hash",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3616,9 +3544,9 @@
       "source_location": "L190",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_stopmonitoring"
+      "target": "src_server_clipboard_clipboardmanager_stopmonitoring",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3627,9 +3555,9 @@
       "source_location": "L198",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_setautosync"
+      "target": "src_server_clipboard_clipboardmanager_setautosync",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3638,9 +3566,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_getnativeclipboard"
+      "target": "src_server_clipboard_clipboardmanager_getnativeclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3649,9 +3577,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_setnativeclipboard"
+      "target": "src_server_clipboard_clipboardmanager_setnativeclipboard",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3660,9 +3588,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_clipboard_clipboardmanager",
-      "target": "src_server_clipboard_clipboardmanager_constructor"
+      "target": "src_server_clipboard_clipboardmanager_constructor",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3671,9 +3599,9 @@
       "source_location": "L143",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_startwatcher"
+      "target": "src_server_storage_storagemanager_startwatcher",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3682,9 +3610,9 @@
       "source_location": "L167",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_getfiles"
+      "target": "src_server_storage_storagemanager_getfiles",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3693,9 +3621,9 @@
       "source_location": "L171",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_getfile"
+      "target": "src_server_storage_storagemanager_getfile",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3704,9 +3632,9 @@
       "source_location": "L176",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_registeruploadedfile"
+      "target": "src_server_storage_storagemanager_registeruploadedfile",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3715,9 +3643,9 @@
       "source_location": "L195",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_deletefile"
+      "target": "src_server_storage_storagemanager_deletefile",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3726,9 +3654,9 @@
       "source_location": "L213",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_opendownloadfolder"
+      "target": "src_server_storage_storagemanager_opendownloadfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3737,9 +3665,9 @@
       "source_location": "L229",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_openspecificfile"
+      "target": "src_server_storage_storagemanager_openspecificfile",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3748,9 +3676,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_init"
+      "target": "src_server_storage_storagemanager_init",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3759,9 +3687,9 @@
       "source_location": "L66",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_loadmeta"
+      "target": "src_server_storage_storagemanager_loadmeta",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3770,9 +3698,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_constructor"
+      "target": "src_server_storage_storagemanager_constructor",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3781,9 +3709,9 @@
       "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_savemeta"
+      "target": "src_server_storage_storagemanager_savemeta",
+      "confidence_score": 1.0
     },
     {
       "relation": "method",
@@ -3792,9 +3720,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_server_storage_storagemanager",
-      "target": "src_server_storage_storagemanager_scanfolder"
+      "target": "src_server_storage_storagemanager_scanfolder",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
