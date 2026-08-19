@@ -207,12 +207,13 @@ export async function createTailShareServer(portOverride = null) {
     try {
       const tailscale = await getTailscaleInfo();
       const clientList = Array.from(clients.values());
+      const hostUrl = tailscale.dnsName ? `http://${tailscale.dnsName}:${PORT}` : `http://${tailscale.ip}:${PORT}`;
 
       res.json({
         success: true,
         tailscale,
         port: PORT,
-        webUrl: `http://${tailscale.ip}:${PORT}`,
+        webUrl: hostUrl,
         storageDir: storageManager.downloadDir,
         activeClients: clientList,
         settings,
@@ -226,11 +227,11 @@ export async function createTailShareServer(portOverride = null) {
     }
   });
 
-  // 2. Dynamic QR Code
+  // 2. Dynamic QR Code (MagicDNS / Tailscale)
   app.get('/api/qr', async (req, res) => {
     try {
       const tailscale = await getTailscaleInfo();
-      const targetUrl = `http://${tailscale.ip}:${PORT}`;
+      const targetUrl = tailscale.dnsName ? `http://${tailscale.dnsName}:${PORT}` : `http://${tailscale.ip}:${PORT}`;
       const qrDataUrl = await QRCode.toDataURL(targetUrl, {
         margin: 2,
         width: 380,

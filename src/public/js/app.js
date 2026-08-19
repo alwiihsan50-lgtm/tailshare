@@ -349,7 +349,7 @@
         state.webUrl = data.webUrl;
         
         // Update header & network tab
-        el.headerTailscaleIp.textContent = `${data.tailscale.ip}:${data.port}`;
+        el.headerTailscaleIp.textContent = `${data.tailscale.dnsName || data.tailscale.ip}:${data.port}`;
         el.tsNodeIp.textContent = data.tailscale.ip;
         el.tsHostname.textContent = data.tailscale.hostname;
         el.tsDnsName.textContent = data.tailscale.dnsName || '-';

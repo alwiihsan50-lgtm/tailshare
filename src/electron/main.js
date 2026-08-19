@@ -81,7 +81,8 @@ function createWindow(serverPort, tailscaleInfo) {
 function createTray(serverPort, tailscaleInfo) {
   try {
     tray = new Tray(trayIconPath);
-    const webUrl = `http://${tailscaleInfo.ip || '127.0.0.1'}:${serverPort}`;
+    const hostLabel = tailscaleInfo.dnsName || tailscaleInfo.ip || '127.0.0.1';
+    const webUrl = `http://${hostLabel}:${serverPort}`;
 
     const contextMenu = Menu.buildFromTemplate([
       {
@@ -89,7 +90,7 @@ function createTray(serverPort, tailscaleInfo) {
         enabled: false
       },
       {
-        label: `🌐 Web: ${tailscaleInfo.ip || 'Localhost'}:${serverPort}`,
+        label: `🌐 Web: ${hostLabel}:${serverPort}`,
         click: () => {
           shell.openExternal(webUrl);
         }
